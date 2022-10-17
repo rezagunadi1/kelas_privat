@@ -19,7 +19,7 @@ class CreateChatsTable extends Migration
             $table->longText('title');
             $table->longText('chat');
             $table->longText('picture')->nullable();
-            $table->string('is_done')->default('0');
+            $table->bigInteger('is_done')->default(0);
             $table->timestamps();
         });
     }

@@ -19,7 +19,7 @@ class CreateKomensTable extends Migration
             $table->string('user_id');
             $table->longText('komen');
             $table->longText('foto')->nullable();
-            $table->string('is_pin')->default('0');
+            $table->bigInteger('is_pin')->default(0);
             $table->bigInteger('is_deleted')->default(0);
             $table->timestamps();
         });
