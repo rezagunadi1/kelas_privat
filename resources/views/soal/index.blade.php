@@ -16,7 +16,7 @@
     @endif
     <div class="w-100 mb-3">
       <div class="row justify-content-between w-100 m-0">
-          <div class="col-md col-6 ps-0">
+          {{-- <div class="col-md col-6 ps-0">
               
             <div>Tingkatan</div>
             <select class="form-select" id="position-option" name="tingkat">
@@ -25,7 +25,7 @@
                 <option value="SMP">SMP</option>
                 <option value="SD">SD</option>
             </select>
-          </div>
+          </div> --}}
           <div class="col-md col-6 tahun-container">
               
             <div>Paket</div>
@@ -37,7 +37,7 @@
                 @endforeach
             </select>
           </div>
-          <div class="col mapel-container">
+          {{-- <div class="col mapel-container">
               
             <div>Mata pelajaran</div>
             <select class="form-select" id="position-option" name="mapel">
@@ -45,7 +45,7 @@
                 <option value="Matematika">Matematika</option>
                 <option value="Fisika">Fisika</option>
             </select>
-          </div>
+          </div> --}}
           <div class="col-auto sumbit-button-container pe-0 align-self-end">
             <button
             @if (!empty(Auth::user()->role))

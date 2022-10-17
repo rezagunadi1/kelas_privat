@@ -63,7 +63,7 @@ class SoalController extends Controller
     {
         // $req = $req->toArray();
         // dd($req);
-        $soal = soal::where('grade', $req->tingkat)->where('kelas', 3)->where('paket_id', $req->paket)->where('mapel', $req->mapel)->where('is_deleted', 0)->get();
+        $soal = soal::where('paket_id', $req->paket)->where('is_deleted', 0)->get();
         return view('soal.show',[
             'title' => 'Latihan Soal SiLas',
             'soal' => $soal,
