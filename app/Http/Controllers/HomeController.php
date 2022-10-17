@@ -66,6 +66,7 @@ class HomeController extends Controller
         $news->category = $request->category;
         $news->description = $request->description;
         $news->created_by = $request->created_by;
+        $news->user_id = $request->created_by;
         $news->save();
         if ($request->file('images')) {
             // dd($request->file('images'));
