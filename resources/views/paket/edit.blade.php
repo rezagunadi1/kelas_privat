@@ -1,20 +1,20 @@
 @extends('layouts.app')
 @section('content')
     
-    <div class="col-11 mx-auto">
+    <div class="col-11 mx-auto mt-3">
         <div class="row justify-content-between">
             <div class="col-auto h2">{{ $paket->name }} </div>
-            <div class="col"> 
+            <div class="col align-bottom px-0 pt-1"> 
                 <div class="rounded-pill">
                     @if ( $paket->is_public == 1 )
                         <a href="{{ URL::route("change_public_paket",$paket->id) }}">
-                            <button class="btn rounded-pill btn-primary">
+                            <button style="font-size: 8px; text-align:center" class="py-1 px-2 btn rounded-pill btn-primary">
                                 PUBLIC
                             </button>
                         </a>
                     @else
                         <a href="{{ URL::route("change_public_paket",$paket->id) }}">
-                            <button class="btn rounded-pill btn-primary">
+                            <button style="font-size: 8px; text-align:center" class="py-1 px-2 btn rounded-pill btn-primary">
                                 PRIVAT
                             </button>
                         </a>
@@ -58,11 +58,11 @@
                         @endif
 
                     </div>
-                    <div class="col-auto">
+                    <div class="col-auto pt-3  align-bottom ">
                         
                         <a href="{{ URL::route("delete_soal", $item->id) }}">
 
-                            <i class="bi bi-trash3"></i>
+                            <i class="bi bi-trash3 mt-2"></i>
                         </a>
                     </div>
                 </div>

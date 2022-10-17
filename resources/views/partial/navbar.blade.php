@@ -40,6 +40,12 @@
                 About
             </a>
         </div>
+        <div class="col-auto px-md-2 px-lg-3">
+            <a  style="color: white" id="" class="nav-About nav-link nav-bar" href="#">
+                
+                Materi Pembelajaran
+            </a>
+        </div>
         @if (!empty(Auth::user()->role))
             @if (Auth::user()->role == 'admin' || Auth::user()->role == 'ADMIN')
                 <div class="col-auto px-md-2 px-lg-3">

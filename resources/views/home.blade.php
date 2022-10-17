@@ -31,66 +31,65 @@
         Jasa Guru Les Privat KELAS PRIVAT, memberikan Jasa Guru Les Privat datang ke rumah dan online.
     </div>
 </div>
+
+<div class="mx-auto mb-5">
+
+    <div class="row">
+        <div class="col text-center shadow rounded py-3">
+            <a href="{{ URL::route('practice') }}">
+                <div class="bg-primary mb-3 fs-6" style="-webkit-text-stroke: 1px gold; font-weight:600; color:yellow; border-radius:12px;">
+                    <div>
+                        Bimbingan
+                    </div>
+                    <div>
+                        Olimpiade
+                    </div>
+                </div>
+                <i class="bi bi-award fs-1"></i>
+            </a>
+        </div>
+        <div class="col text-center shadow rounded py-3">
+            <a href="{{ URL::route('practice') }}">
+                <div class="bg-primary mb-3 fs-6" style="-webkit-text-stroke: 1px gold; font-weight:600; color:yellow; border-radius:12px;">
+                    <div>
+                        Bimbingan
+                    </div>
+                    <div>
+                        Belajar
+                    </div>
+                </div>
+                <i class="bi bi-journal-richtext fs-1"></i>
+            </a>
+        </div>
+        <div class="col text-center shadow rounded py-3">
+            <div class="bg-primary mb-3 fs-6" style="-webkit-text-stroke: 1px gold; font-weight:600; color:yellow; border-radius:12px;">
+                <div>
+                    Pengembangan
+                </div>
+                <div>
+                    Bakat
+                </div>
+            </div>
+            <i class="bi bi-cpu fs-1"></i>
+            {{-- <i class="bi bi-browser-safari fs-1"></i> --}}
+        </div>
+        <div class="col text-center shadow rounded py-3">
+            <div class="bg-primary mb-3 fs-6" style="-webkit-text-stroke: 1px gold; font-weight:600; color:yellow; border-radius:12px;">
+                <div>
+                    Pendalaman
+                </div>
+                <div>
+                    Materi
+                </div>
+            </div>
+            <i class="bi bi-book-half fs-1" ></i>
+        </div>
+    </div>
+</div>
 <div class="mx-auto">
 
       <section>
-        <div class="container reveal fade-bottom">
-            <div class="row">
-                <div class="col text-center shadow rounded py-3">
-                    <a href="{{ URL::route('practice') }}">
-                        <div class="bg-primary mb-3 fs-6" style="-webkit-text-stroke: 1px gold; font-weight:600; color:yellow; border-radius:12px;">
-                            <div>
-                                Bimbingan
-                            </div>
-                            <div>
-                                Olimpiade
-                            </div>
-                        </div>
-                        <i class="bi bi-award fs-1"></i>
-                    </a>
-                </div>
-                <div class="col text-center shadow rounded py-3">
-                    <a href="{{ URL::route('practice') }}">
-                        <div class="bg-primary mb-3 fs-6" style="-webkit-text-stroke: 1px gold; font-weight:600; color:yellow; border-radius:12px;">
-                            <div>
-                                Bimbingan
-                            </div>
-                            <div>
-                                Belajar
-                            </div>
-                        </div>
-                        <i class="bi bi-journal-richtext fs-1"></i>
-                    </a>
-                </div>
-                <div class="col text-center shadow rounded py-3">
-                    <div class="bg-primary mb-3 fs-6" style="-webkit-text-stroke: 1px gold; font-weight:600; color:yellow; border-radius:12px;">
-                        <div>
-                            Pengembangan
-                        </div>
-                        <div>
-                            Bakat
-                        </div>
-                    </div>
-                    <i class="bi bi-cpu fs-1"></i>
-                    {{-- <i class="bi bi-browser-safari fs-1"></i> --}}
-                </div>
-                <div class="col text-center shadow rounded py-3">
-                    <div class="bg-primary mb-3 fs-6" style="-webkit-text-stroke: 1px gold; font-weight:600; color:yellow; border-radius:12px;">
-                        <div>
-                            Pendalaman
-                        </div>
-                        <div>
-                            Materi
-                        </div>
-                    </div>
-                    <i class="bi bi-book-half fs-1" ></i>
-                </div>
-            </div>
-        </div>
-      </section>
-      
-      <section>
-        <div class="container reveal fade-left">
+        <div class="container reveal fade-bottom px-0 pb-md-3 pb-1">
             <div class="row shadow rounded p-3">
                 <div class="col-md-6 col-12 my-auto">
                     
@@ -114,6 +113,11 @@
                     <img src="{{ URL::To('assets/img/guru-belajar.png') }}" class="img-fluid" alt="">
                 </div>
             </div>
+        </div>
+      </section>
+      
+      <section>
+        <div class="container reveal fade-left">
         </div>
       </section>
       

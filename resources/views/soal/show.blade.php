@@ -61,15 +61,15 @@
         </div>
       </div>
       @endforeach
-      @if ()
+      {{-- @if ()
           
       @else
           
-      @endif
+      @endif --}}
       <button type="submit"
       
         @if (!empty(Auth::user()->role)) 
-          @if (!empty(Auth::user()->hp) || !empty(Auth::user()->email))
+          @if (empty(Auth::user()->hp) || empty(Auth::user()->email))
               
             href="#" id="button-not-nomer"
           @else

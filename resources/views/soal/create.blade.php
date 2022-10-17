@@ -57,7 +57,7 @@
             </div>
         </div>
         <div class="row justify-content-between w-100 mx-0 mt-2">
-            <div class="col-md col-6 ps-0">
+            {{-- <div class="col-md col-6 ps-0">
                 
               <div>Tingkatan</div>
               <select class="form-select" id="position-option" name="tingkat" required>
@@ -68,7 +68,7 @@
                   <option value="SMP">SMP</option>
                   <option value="SD">SD</option>
               </select>
-            </div>
+            </div> --}}
             {{-- <div class="col-md col-6 tahun-container">
                 
               <div>Tahun</div>
@@ -81,7 +81,7 @@
                   <option value="2022">2022</option>
               </select>
             </div> --}}
-            <div class="col mapel-container">
+            {{-- <div class="col mapel-container">
                 
               <div>Mata pelajaran</div>
               <select class="form-select" id="position-option" name="mapel" required>
@@ -89,7 +89,7 @@
                   <option value="Matematika">Matematika</option>
                   <option value="Fisika">Fisika</option>
               </select>
-            </div>
+            </div> --}}
             <div class="col-auto sumbit-button-container pe-0 align-self-end">
               <button type="submit"  class="btn btn-primary rounded bayangan w-100 submit-button">submit</button>
             </div>

@@ -100,9 +100,9 @@ class SoalController extends Controller
         $soal->jawaban_d = $req->jawaban_d;	
         $soal->jawaban_e = $req->jawaban_e;	
         $soal->kunci = $req->kunci;	
-        $soal->grade = $req->tingkat;	
-        $soal->kelas = 3;	
-        $soal->mapel = $req->mapel;	
+        // $soal->grade = $req->tingkat;	
+        // $soal->kelas = 3;	
+        // $soal->mapel = $req->mapel;	
         $soal->paket_id = $req->paket_id;	
         $soal->owner_id = Auth::user()->id;	
         if (!empty($req->image_soal)) {
@@ -231,14 +231,15 @@ class SoalController extends Controller
         // $req = $req->toArray();
         // dd($req);
         $count = count($req->all());
-        // dd($count);
         $count =$count-2;
         $count =$count/3;
         $count =$count;
+        // dd($count);
         $a=0;
         $kunci = '';
         $answer = '';
-        for ($i=1; $i < $count; $i++) { 
+
+        for ($i=0; $i < $count; $i++) { 
             $jawaban = 'jawaban_'.$i;
             $soal = 'kunci_'.$i;
             $soal_id = 'soal_'.$i;
@@ -252,7 +253,7 @@ class SoalController extends Controller
             $jawaban->id_paket = $req->paket; 
             $jawaban->kunci = $req->$soal; 
             $jawaban->jawaban = $final_jawaban; 
-            
+            // dd($req->$soal);
             if ($req->$soal == $final_jawaban) {
                 $jawaban->is_true = 1; 
                 $a=$a+1;

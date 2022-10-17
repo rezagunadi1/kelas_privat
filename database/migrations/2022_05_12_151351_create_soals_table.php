@@ -29,9 +29,6 @@ class CreateSoalsTable extends Migration
             $table->longText('image_d')->nullable();
             $table->longText('image_e')->nullable();
             $table->string('kunci');
-            $table->string('grade');
-            $table->string('kelas')->default(3);
-            $table->string('mapel');
             // $table->string('tahun');
             $table->string('owner_id');
             $table->bigInteger('is_deleted')->default(0);

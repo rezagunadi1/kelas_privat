@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     
-    <div class="col-11 mx-auto">
+    <div class="col-11 mx-auto mt-3">
         <div class="row justify-content-between">
             <div class="col h2">List Paket Soal</div>
             <div class="col-auto">

@@ -39,6 +39,12 @@
                 About
               </a>
             </li>
+            <li class="nav-item">
+              <a id="" class="nav-About nav-link side-bar" href="#">
+                <span data-feather="layers"></span>
+                Materi Pembelajaran
+              </a>
+            </li>
             @if (!empty(Auth::user()->role))
                 @if (Auth::user()->role == 'admin' || Auth::user()->role == 'ADMIN')
                     
