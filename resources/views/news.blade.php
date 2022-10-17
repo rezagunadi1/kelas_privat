@@ -73,7 +73,7 @@
     {{-- <a href="{{ route('komen', $item->chat_id) }}"> --}}
 
       <div class="row mx-0 mb-4 bg-light bg-gradient px-md-4 py-md-4 px-2 py-2 bayangan"  style="border-radius: 12px">
-        <div class="s14-500 mb-1">{{ $item->title }}</div>
+        <div class="s18-500 mb-1">{{ $item->title }}</div>
         <div class="col-auto rounded shadow s8-400 mb-3 bg-primary" style="color: aliceblue!important; margin-left:12px!important;">{{ $item->category }}</div>
         <div class="s12-400"  style="color: rgb(4, 45, 56)">{{ $item->description }}</div>
         @php
