@@ -22,7 +22,13 @@
 
 @section('content')
   
-<div class="mt-3 p-3 my-auto rounded" style=' background-image: url("/assets/img/bg-blue.jpg")'>
+<div class="mt-3 p-3 p-md-5f my-auto rounded" style=' background-image: url("/assets/img/edu.jpg"); background-repeat: no-repeat;
+background-position: right;
+background-size: 100% 100%;
+  -webkit-background-size: strech;
+  -moz-background-size: strech;
+  -o-background-size: strech;
+  background-size: strech;'>
     <div class="fs-2 fw-bold col-12 mx-auto text-center stroke" id="colorChange1">
         Fasilitas Gratis 
     </div>

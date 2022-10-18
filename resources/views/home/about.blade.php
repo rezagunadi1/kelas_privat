@@ -34,7 +34,7 @@ background-position: center;'>
         KELAS PRIVAT
     </div>
     <div class="mt-2 text-center fs-5">
-        Kelas privat hadir sebagai solusi bagi orangtua serta siswa yang membutuhkan les privat dengan konsultasi rutin dan diskusi mengenai permasalahan belajar anak serta kiat kiat belajar agar hasil yang didapatkan maksimal. 
+        hadir sebagai solusi bagi orangtua serta siswa yang membutuhkan les privat dengan konsultasi rutin dan diskusi mengenai permasalahan belajar anak serta kiat kiat belajar agar hasil yang didapatkan maksimal. 
     </div>
 </div>
 <div class="mx-auto my-5">
@@ -74,7 +74,7 @@ background-position: center;'>
                 <div class="col-auto mx-auto text-center">
                     <a href="https://api.whatsapp.com/send?phone=6281211006445&text=Halo%20nama%20saya%20......%20saya,%20mau%20tanya%20terkait">
                         <div class="p-3 mb-5 col-auto  text-center" style='color: white;margin-top:-40px; background: rgb(43, 0, 255); border-radius: 12px;width:220px'>
-                            KELAS PRIVAT
+                            Join with US
                         </div>
                     </a>
                 </div>
