@@ -23,7 +23,7 @@
             </div> --}}
             <div class="col">
                 
-                <textarea type="text-are"  rows="14" placeholder="Content" class="w-100" class="rounded" name="chat"></textarea>
+                <textarea type="text-are"  rows="14" placeholder="Content" class="w-100" class="rounded" name="chat">{!! nl2br(old('body')) !!}</textarea>
             </div>    
         </div>
         <div class="row mt-3">

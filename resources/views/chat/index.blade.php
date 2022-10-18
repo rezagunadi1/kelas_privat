@@ -98,7 +98,7 @@
           </div>
           <div class="s12-400 mb-md-2 mb-1">
             
-            {{ $item->chat }}
+            {!! nl2br($item->chat) !!}
           </div>
           <div class="cover-img" style="  height: 200px; 
           justify-content: center;

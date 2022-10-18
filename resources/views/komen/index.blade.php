@@ -158,7 +158,7 @@
                 </div>
                 <div class="s16-400 mb-md-3 mb-2">
                     
-                    {{ $item->komen }}
+                    {!! nl2br($item->komen) !!}
                 </div>
                 <div>
                     <img src='{{ URL::To("$item->foto") }}' class="img-fluid" style="border-radius: 12px" alt="">
@@ -184,7 +184,7 @@
     @endif
     <div class="w-100 mb-3">
       
-      <textarea class="w-100 bayangan rounded" name="komen" id="" cols="30" rows="10"></textarea>
+      <textarea class="w-100 bayangan rounded" name="komen" id="" cols="30" rows="10">{!! nl2br(old('body')) !!}</textarea>
     </div>
     <div class="mb-2">
       {{-- <label for="fileUpload">Upload file</label> --}}
