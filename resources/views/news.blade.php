@@ -1,4 +1,44 @@
 @extends('layouts.app')
+
+{{-- 
+@push('meta')
+    
+    
+<meta name="title" content="Kelas Privat - Info Lomba, Olimpiade & beasiswa">
+<meta name="description" content="Info Olimpiade, Info Lomba, info beasiswa dan pendidikan">
+<meta name="keywords" content="Kelas Privat, Info Olimpiade, Info Lomba, info beasiswa, pendidikan">
+<meta property="og:title" content="Kelas Privat - Info Lomba, Olimpiade & beasiswa">
+<meta property="og:description" content="Info Olimpiade, Info Lomba, info beasiswa, latihan soal, pendalaman matri, Les Privat, olimpiade dan berita seputar pendidikan">
+<meta property="og:site_name" content="Kelas Privat: Info Lomba, Olimpiade & beasiswa">
+
+<meta property="og:image" content="https://kelas-privat.com/assets/img/logo.png">
+<meta property="og:image:width" content="600">
+<meta property="og:image:height" content="600">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kelas-privat.com/news">
+@endpush --}}
+
+
+
+@push('meta')
+    
+    
+<meta name="title" content="Kelas Privat - Latihan Soal Online">
+<meta name="description" content="Latihan soal gratis dilengkapi auto koreksi">
+<meta name="keywords" content="Kelas Privat, latihan soal gratis, auto koreksi soal, soal dan jawaban, latihan soal dan jawaban,">
+<meta property="og:title" content="Kelas Privat - Latihan Soal Online">
+<meta property="og:description" content="Latihan soal gratis dilengkapi auto koreksi">
+<meta property="og:site_name" content="Kelas Privat: Latihan Soal Online">
+
+<meta property="og:image" content="https://kelas-privat.com/assets/img/logo.png">
+<meta property="og:image:width" content="600">
+<meta property="og:image:height" content="600">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ url()->current(); }}">
+@endpush
+
+
+
 @section('content')
     
 

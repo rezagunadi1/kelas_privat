@@ -67,7 +67,6 @@ class SoalController extends Controller
         return view('soal.show',[
             'title' => 'Latihan Soal SiLas',
             'soal' => $soal,
-            'mapel' => $req->mapel,
             'paket' => $req->paket,
         ]);
     }

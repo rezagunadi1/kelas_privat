@@ -4,6 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    {{-- <meta name="description" content=""> --}}
+    {{-- <meta name="author" content="reza gunadi, ayo indonesia"> --}}
+    {{-- <meta name="generator" content="Hugo 0.88.1">
+    {{-- <title>Ayo Indonesia | Platform penghubung untuk kamu yang suka olahraga</title> --}}
+    @stack('meta')
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
