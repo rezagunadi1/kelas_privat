@@ -1,112 +1,63 @@
 @extends('layouts.app')
 @section('content')
   
-<div class="mt-3 p-3 my-auto " style='background: white; border-radius: 12px;'>
-    <img src="" alt="">
+<div class="mt-3 pb-3 px-3 my-auto text-center s28-500 align-bottom shadow" style='color:rgb(195, 202, 247); -webkit-text-fill-color: rgb(190, 190, 247); -webkit-text-stroke: 1.3px black; background: white; border-radius: 12px;background-image: url("/assets/img/upgrade.gif");  padding-top: 255px;
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: center;'>
     Kelas privat merupakan lembaga pendidikan les privat yang berfokus pada perkembangan belajar siswa.
 </div>
-<div class="mx-auto mt-4 mb-3">
+<div class="mx-auto mt-4 mb-3 text-center">
+    <img src="{{ URL::To('/assets/img/management.png') }}" class="img-fluid" alt="">
     <div class="text-center fs-1" style="-webkit-text-stroke: 1px black; font-weight:600; color:blue">
         KELAS PRIVAT
     </div>
     <div class="mt-2 text-center fs-5">
-        Jasa Guru Les Privat KELAS PRIVAT, memberikan Jasa Guru Les Privat datang ke rumah dan online.
+        Kelas privat hadir sebagai solusi bagi orangtua serta siswa yang membutuhkan les privat dengan konsultasi rutin dan diskusi mengenai permasalahan belajar anak serta kiat kiat belajar agar hasil yang didapatkan maksimal. 
     </div>
 </div>
-<div class="mx-auto">
+<div class="mx-auto my-5">
 
-      <section>
-        <div class="container reveal fade-bottom">
-            <div class="row">
-                <div class="col text-center shadow rounded py-3">
-                    <a href="{{ URL::route('practice') }}">
-                        <div class="bg-primary mb-3 fs-6" style="-webkit-text-stroke: 1px gold; font-weight:600; color:yellow; border-radius:12px;">
-                            <div>
-                                Bimbingan
-                            </div>
-                            <div>
-                                Olimpiade
-                            </div>
-                        </div>
-                        <i class="bi bi-award fs-1"></i>
-                    </a>
-                </div>
-                <div class="col text-center shadow rounded py-3">
-                    <a href="{{ URL::route('practice') }}">
-                        <div class="bg-primary mb-3 fs-6" style="-webkit-text-stroke: 1px gold; font-weight:600; color:yellow; border-radius:12px;">
-                            <div>
-                                Bimbingan
-                            </div>
-                            <div>
-                                Belajar
-                            </div>
-                        </div>
-                        <i class="bi bi-journal-richtext fs-1"></i>
-                    </a>
-                </div>
-                <div class="col text-center shadow rounded py-3">
-                    <div class="bg-primary mb-3 fs-6" style="-webkit-text-stroke: 1px gold; font-weight:600; color:yellow; border-radius:12px;">
-                        <div>
-                            Pengembangan
-                        </div>
-                        <div>
-                            Bakat
-                        </div>
-                    </div>
-                    <i class="bi bi-cpu fs-1"></i>
-                    {{-- <i class="bi bi-browser-safari fs-1"></i> --}}
-                </div>
-                <div class="col text-center shadow rounded py-3">
-                    <div class="bg-primary mb-3 fs-6" style="-webkit-text-stroke: 1px gold; font-weight:600; color:yellow; border-radius:12px;">
-                        <div>
-                            Pendalaman
-                        </div>
-                        <div>
-                            Materi
-                        </div>
-                    </div>
-                    <i class="bi bi-book-half fs-1" ></i>
-                </div>
-            </div>
-        </div>
-      </section>
       
       <section>
         <div class="container reveal fade-left">
-            <div class="row shadow rounded p-3">
-                <div class="col-md-6 col-12 my-auto">
-                    
-                    <div class="col-md-auto col-12 mb-3 fs-1" style="-webkit-text-stroke: 1px blue; font-weight:600; color: GOLD">
-                        Kami Merencanakan
-                    </div>
-                    <div class="col-md-auto col-12 fs-4" style="-webkit-text-stroke: 1px blue; font-weight:500; color: blue">
-                        ⦿ Metode Belajar
-                    </div>
-                    <div class="col-md-auto col-12 fs-4" style="-webkit-text-stroke: 1px blue; font-weight:500; color: blue">
-                        ⦿ Perkembangan & Prestasi
-                    </div>
-                    <div class="col-md-auto col-12 fs-4" style="-webkit-text-stroke: 1px blue; font-weight:500; color: blue">
-                        ⦿ Pemahaman Mendalam
-                    </div>
-                    <div class="col-md-auto col-12 fs-4" style="-webkit-text-stroke: 1px blue; font-weight:500; color: blue">
-                        ⦿ Minat & Bakat
-                    </div>
+            <div class="row justify-content-center">
+                <div class="col-auto bg-light p-3 rounded-pill mx-3 my-2">
+                    <img src="{{ URL::To('/assets/img/ui.png') }}" class="" style="height: 80px; width:80px;" alt="">
                 </div>
-                <div class="col-md-6 col-12">
-                    <img src="{{ URL::To('assets/img/guru-belajar.png') }}" class="img-fluid" alt="">
+                <div class="col-auto bg-light p-3 rounded-pill mx-3 my-2">
+                    <img src="{{ URL::To('/assets/img/gundar.png') }}" class="" style="height: 80px; width:80px;" alt="">
+                </div>
+                <div class="col-auto bg-light p-3 rounded-pill mx-3 my-2">
+                    <img src="{{ URL::To('/assets/img/ipb.png') }}" class="" style="height: 80px; width:80px;" alt="">
+                </div>
+                <div class="col-auto bg-light p-3 rounded-pill mx-3 my-2">
+                    <img src="{{ URL::To('/assets/img/itb.png') }}" class="" style="height: 80px; width:80px;" alt="">
+                </div>
+                <div class="col-auto bg-light p-3 rounded-pill mx-3 my-2">
+                    <img src="{{ URL::To('/assets/img/uin.png') }}" class="" style="height: 80px; width:80px;" alt="">
                 </div>
             </div>
         </div>
       </section>
       
       <section>
-        <div class="container reveal fade-right">
-            
-<div class="p-3 mb-5 " style='margin-top:-40px; background: rgb(43, 0, 255); border-radius: 12px;'>
-    <div class="col text-center" style="color: white">
-        KELAS PRIVAT
-    </div>
-</div>
+        <div class="container reveal fade-bottom text-center s28-500">
+            Kelas privat memiliki tutor tutor pengajar yang berkompeten serta menggunakan metode metode pembelajaran khusus yang sesuai dengan kriteria masing masing siswa
+        </div>
+      </section>
+      <section>
+        <div class="container reveal fade-right text-center">
+            <div class="row">
+
+                <div class="col-auto mx-auto text-center">
+                    <a href="https://api.whatsapp.com/send?phone=6281211006445&text=Halo%20nama%20saya%20......%20saya,%20mau%20tanya%20terkait">
+                        <div class="p-3 mb-5 col-auto  text-center" style='color: white;margin-top:-40px; background: rgb(43, 0, 255); border-radius: 12px;width:220px'>
+                            KELAS PRIVAT
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
       </section>
   
@@ -163,7 +114,7 @@
         background: #42455a;
         } */
         section {
-        min-height:40vh;
+        min-height:20vh;
         display: flex;
         justify-content: center;
         align-items: center;

@@ -36,7 +36,7 @@
 
     <div class="row">
         <div class="col text-center shadow rounded py-3">
-            <a href="{{ URL::route('practice') }}">
+            <a href="https://api.whatsapp.com/send?phone=6281211006445&text=Halo%20nama%20saya%20......%20saya,%20mau%20tanya%20terkait">
                 <div class="bg-primary mb-3 fs-6" style="-webkit-text-stroke: 1px gold; font-weight:600; color:yellow; border-radius:12px;">
                     <div>
                         Bimbingan
@@ -61,7 +61,7 @@
                 <i class="bi bi-journal-richtext fs-1"></i>
             </a>
         </div>
-        <div class="col text-center shadow rounded py-3">
+        <div class="col text-center shadow rounded py-3 nav-materi">
             <div class="bg-primary mb-3 fs-6" style="-webkit-text-stroke: 1px gold; font-weight:600; color:yellow; border-radius:12px;">
                 <div>
                     Pengembangan
@@ -73,7 +73,7 @@
             <i class="bi bi-cpu fs-1"></i>
             {{-- <i class="bi bi-browser-safari fs-1"></i> --}}
         </div>
-        <div class="col text-center shadow rounded py-3">
+        <div class="col text-center shadow rounded py-3 nav-materi">
             <div class="bg-primary mb-3 fs-6" style="-webkit-text-stroke: 1px gold; font-weight:600; color:yellow; border-radius:12px;">
                 <div>
                     Pendalaman
