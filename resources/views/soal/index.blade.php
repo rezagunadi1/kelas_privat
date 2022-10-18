@@ -50,8 +50,8 @@
           <div class="col-md col-6 tahun-container">
               
             <div>Paket</div>
-            <select class="form-select" id="position-option" name="paket">
-                <option value="" selected disabled>Pilih paket</option>
+            <select class="select2  form-control" id="position-option" name="paket" required>
+                <option value="" selected disabled>Jenjang pendidikan <'Spasi'> Mata pelajaran</option>
                 @foreach ($paket as $item)
                     
                 <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -117,8 +117,15 @@
 </div>
 @endsection
 
-@push('script')
+@push('script')  
+<script>
+$(document).ready(function() {
+    $('.select2').select2();
+});
+
+</script>
     <script>
+      
       $('#button-block').click(function() {
         alert( "Silahkan Login untuk Melanjutkan" );
       });
