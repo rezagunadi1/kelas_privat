@@ -38,7 +38,7 @@ class SoalController extends Controller
                 });
             }
         }
-        $paket = $paket->get();
+        $paket = $paket->orderBy('id','desc')->get();
         return view('soal.index',[
             'title' => 'Latihan Soal SiLas',
             'paket' => $paket,
@@ -63,7 +63,7 @@ class SoalController extends Controller
     {
         // $req = $req->toArray();
         // dd($req);
-        $soal = soal::where('paket_id', $req->paket)->where('is_deleted', 0)->get();
+        $soal = soal::where('paket_id', $req->paket)->where('is_deleted', 0)-->orderBy('id','desc')>get();
         return view('soal.show',[
             'title' => 'Latihan Soal SiLas',
             'soal' => $soal,
@@ -75,7 +75,7 @@ class SoalController extends Controller
     {
         // $req = $req->toArray();
         // dd($req);
-        $paket = PaketSoal::where('user_id', Auth::user()->id)->where('is_deleted', 0)->get();
+        $paket = PaketSoal::where('user_id', Auth::user()->id)->where('is_deleted', 0)->orderBy('id','desc')->get();
         return view('paket.list',[
             'title' => 'List Soal',
             'paket' => $paket,

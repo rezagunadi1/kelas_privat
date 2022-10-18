@@ -37,10 +37,10 @@ class HomeController extends Controller
     }
     public function index()
     {
-        $data = \Illuminate\Support\Facades\DB::table('news')->get();
+        $data = \Illuminate\Support\Facades\DB::table('news')->orderBy('id','desc')->get();
         foreach ($data as $value) {
             # code...
-            $value->images = Image::where('news_id', $value->id)->get();
+            $value->images = Image::where('news_id', $value->id)->orderBy('id','desc')->get();
         }
         return view('news',[
             'title' => 'Kelas News',

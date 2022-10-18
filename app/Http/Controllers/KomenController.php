@@ -31,7 +31,7 @@ class KomenController extends Controller
         ->where('k.chat_id', $id)
         ->join('users as u', 'u.id', '=', 'k.user_id')
         ->select('k.*', 'k.id as komen_id', 'u.*')
-        ->get();
+        ->->orderBy('id','desc')get();
         $pinned = \Illuminate\Support\Facades\DB::table('komens as k')
         ->where('k.chat_id', $id)
         ->where('k.is_pin', 1)

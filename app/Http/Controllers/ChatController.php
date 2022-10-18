@@ -30,7 +30,7 @@ class ChatController extends Controller
         {
             $data = DB::table('chats as c')
             ->join('users as u', 'u.id', '=', 'c.author_id')
-            ->select('c.*', 'c.id as chat_id', 'u.*')
+            ->select('c.*', 'c.id as chat_id', 'u.*')->orderBy('id','desc')
             ->get();
             // dd($data);
             return view('chat.index',[

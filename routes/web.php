@@ -63,3 +63,4 @@ Route::get('/about-us', function () {
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::match(['get', 'post'],'/api/arduino/dht-pulse/{token}', [App\Http\Controllers\ApiArduinoControllers::class, 'dhtPulse'])->name('api_dht_pulse');
+Route::match(['get', 'post'],'/api/arduino/get-dht-pulse/{token}', [App\Http\Controllers\ApiArduinoControllers::class, 'dhtPulseGet'])->name('api_dht_pulse');

@@ -73,7 +73,7 @@ class PaketSoalController extends Controller
             # code...
             return redirect()->back()->with('error', 'Paket Tidak tersedia, harap menghubungi admin');
         }
-        $soal = soal::where('paket_id', $paket_id)->where('is_deleted', 0)->get();
+        $soal = soal::where('paket_id', $paket_id)->where('is_deleted', 0)->orderBy('id','asc')->get();
         return view('paket.edit',[
             'title' => 'Buat Paket',
             'paket' => $paket,
