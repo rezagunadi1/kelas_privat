@@ -1,4 +1,25 @@
 @extends('layouts.app')
+
+
+@push('meta')
+    
+    
+<meta name="title" content="Kelas Privat - Les Privat Terbaik">
+<meta name="description" content="Les Privat terbaik berkualitas dan responsive">
+<meta name="keywords" content="Kelas Privat, latihan soal, pendalaman matri, Les Privat, olimpiade, berita seputar pendidikan">
+<meta property="og:title" content="Kelas Privat: Les Privat Terbaik">
+<meta property="og:description" content="latihan soal, pendalaman matri, Les Privat, olimpiade dan berita seputar pendidikan">
+<meta property="og:site_name" content="Kelas Privat: Les Privat Terbaik">
+
+<meta property="og:image" content="https://kelas-privat.com/assets/img/logo.png">
+<meta property="og:image:width" content="600">
+<meta property="og:image:height" content="600">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kelas-privat.com">
+@endpush
+
+
+
 @section('content')
   
 <div class="mt-3 pb-3 px-3 my-auto text-center s28-500 align-bottom shadow" style='color:rgb(195, 202, 247); -webkit-text-fill-color: rgb(190, 190, 247); -webkit-text-stroke: 1.3px black; background: white; border-radius: 12px;background-image: url("/assets/img/upgrade.gif");  padding-top: 255px;

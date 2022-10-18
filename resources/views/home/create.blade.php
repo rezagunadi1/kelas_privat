@@ -1,4 +1,25 @@
 @extends('layouts.app')
+
+
+@push('meta')
+    
+    
+<meta name="title" content="Kelas Privat - Info Lomba, Olimpiade & beasiswa">
+<meta name="description" content="Info Olimpiade, Info Lomba, info beasiswa dan pendidikan">
+<meta name="keywords" content="Kelas Privat, Info Olimpiade, Info Lomba, info beasiswa, pendidikan">
+<meta property="og:title" content="Kelas Privat - Info Lomba, Olimpiade & beasiswa">
+<meta property="og:description" content="Info Olimpiade, Info Lomba, info beasiswa, latihan soal, pendalaman matri, Les Privat, olimpiade dan berita seputar pendidikan">
+<meta property="og:site_name" content="Kelas Privat: Info Lomba, Olimpiade & beasiswa">
+
+<meta property="og:image" content="https://kelas-privat.com/assets/img/logo.png">
+<meta property="og:image:width" content="600">
+<meta property="og:image:height" content="600">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kelas-privat.com/news">
+@endpush
+
+
+
 @section('content')
     
     <div class="col-12 mx-auto bayangan p-2 p-md-3 mt-md-5 mt-3" style="background-color: white; border-radius:12px;">
