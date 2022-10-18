@@ -1,27 +1,9 @@
 @extends('layouts.app')
 @section('content')
   
-<div class="mt-3 p-3 my-auto rounded" style=' background-image: url("/assets/img/bg-blue.jpg")'>
-    <div class="fs-2 fw-bold col-12 mx-auto text-center stroke" id="colorChange1">
-        Fasilitas Gratis 
-    </div>
-    <div class="row justify-content-center">
-        <div class="col-md-auto col-12 fs-4" style="-webkit-text-stroke: 1px black; font-weight:500; color:white">
-            ⦿ Akses Ribuan Soal Latihan
-        </div>
-        <div class="col-md-auto col-12 fs-4" style="-webkit-text-stroke: 1px black; font-weight:500; color:white">
-            ⦿ Les / Tanya PR via WA
-        </div>
-        <div class="col-md-auto col-12 fs-4" style="-webkit-text-stroke: 1px black; font-weight:500; color:white">
-            ⦿ Re-Schedule jadwal
-        </div>
-        <div class="col-md-auto col-12 fs-4" style="-webkit-text-stroke: 1px black; font-weight:500; color:white">
-            ⦿ Beasiswa pendaftaran lomba & Olimpiade
-        </div>
-        <div class="col-md-auto col-12 fs-4" style="-webkit-text-stroke: 1px black; font-weight:500; color:white">
-            ⦿ Konsultasi via WA
-        </div>
-    </div>
+<div class="mt-3 p-3 my-auto " style='background: white; border-radius: 12px;'>
+    <img src="" alt="">
+    Kelas privat merupakan lembaga pendidikan les privat yang berfokus pada perkembangan belajar siswa.
 </div>
 <div class="mx-auto mt-4 mb-3">
     <div class="text-center fs-1" style="-webkit-text-stroke: 1px black; font-weight:600; color:blue">
@@ -119,11 +101,17 @@
       
       <section>
         <div class="container reveal fade-right">
-         
+            
+<div class="p-3 mb-5 " style='margin-top:-40px; background: rgb(43, 0, 255); border-radius: 12px;'>
+    <div class="col text-center" style="color: white">
+        KELAS PRIVAT
+    </div>
+</div>
         </div>
       </section>
   
 </div>
+<div class="py-3"></div>
 @endsection
 
 @push('css')

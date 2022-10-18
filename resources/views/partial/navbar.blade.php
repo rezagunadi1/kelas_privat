@@ -35,13 +35,13 @@
             </a>
         </div>
         <div class="col-auto px-md-2 px-lg-3">
-            <a  style="color: white" id="" class="nav-About nav-link nav-bar" href="#">
+            <a  style="color: white" id="" class="nav-About nav-link nav-bar" href="{{ URL::To('/about-us') }}">
                 
                 About
             </a>
         </div>
         <div class="col-auto px-md-2 px-lg-3">
-            <a  style="color: white" id="" class="nav-About nav-link nav-bar" href="#">
+            <a  style="color: white" id="" class="nav-materi nav-link nav-bar" href="#">
                 
                 Materi Pembelajaran
             </a>

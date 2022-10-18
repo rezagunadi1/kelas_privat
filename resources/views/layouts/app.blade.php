@@ -261,7 +261,7 @@
         $(".nav-buatSoal").addClass('active');
     }
     
-    $('.nav-About').click(function() {
+    $('.nav-materi').click(function() {
         alert( "Coming soon" );
       });
     // $(document).ready(function(){

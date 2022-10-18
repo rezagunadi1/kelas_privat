@@ -52,6 +52,14 @@ Route::match(['get', 'post'],'/paket/store', [App\Http\Controllers\PaketSoalCont
 Route::get('/news/create', [App\Http\Controllers\HomeController::class, 'create'])->name('create_news');
 Route::post('/news/store', [App\Http\Controllers\HomeController::class, 'store'])->name('news_store');
 
+
+Route::get('/about-us', function () {
+    return view('home.about',[
+        'title' => 'About Kelas Privat',
+    ]);
+});
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::match(['get', 'post'],'/api/arduino/dht-pulse/{token}', [App\Http\Controllers\ApiArduinoControllers::class, 'dhtPulse'])->name('api_dht_pulse');
