@@ -69,18 +69,19 @@
           </div> --}}
           <div class="col-auto sumbit-button-container pe-0 align-self-end">
             <button
-            @if (!empty(Auth::user()->role))
+            {{-- @if (!empty(Auth::user()->role))
             @if (Auth::user()->role =='siswa' || Auth::user()->role =='admin' || Auth::user()->role =='ADMIN')
-                
+                 --}}
             type="submit"  
-            @else
+            {{-- @else
                 
             type="button" id="button-not-siswa" 
             @endif
             @else
             type="button" id="button-block" 
 
-            @endif class="btn btn-primary rounded bayangan w-100 submit-button">submit</button>
+            @endif  --}}
+            class="btn btn-primary rounded bayangan w-100 submit-button">submit</button>
           </div>
       </div>
     </div>
