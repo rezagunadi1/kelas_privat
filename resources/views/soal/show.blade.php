@@ -89,16 +89,16 @@
       @endif --}}
       <button type="submit"
       
-        @if (!empty(Auth::user()->role)) 
-          @if (empty(Auth::user()->hp) || empty(Auth::user()->email))
+        {{-- @if (!empty(Auth::user()->role)) 
+          @if (empty(Auth::user()->hp) || empty(Auth::user()->email)) --}}
               
-            href="#" id="button-not-nomer"
+            {{-- href="#" id="button-not-nomer"
           @else
             
           @endif
         @else
           href="#" id="button-block"
-        @endif
+        @endif --}}
       class="btn btn-outline-primary mt-3">Selesai</button>
     </form>
     </div>
