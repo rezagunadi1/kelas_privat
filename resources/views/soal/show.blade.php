@@ -30,7 +30,7 @@
   <div class="h-100 py-3 mb-2 s28-500" style="">
         <center>
 
-            {{ $paket }}
+            {{ $data_paket->name }}
         </center>
   </div>
   @php
@@ -38,7 +38,7 @@
   @endphp
   <form action="{{ route('jawaban') }}"  id="list-search"   method="POST">
     @csrf
-    <input type="hidden" name="paket" value="{{ $data_paket->name }}">
+    <input type="hidden" name="paket" value="{{ $paket }}">
     @foreach ($soal as $item)
       @php
         $a=$a+1;
