@@ -38,7 +38,7 @@
   @endphp
   <form action="{{ route('jawaban') }}"  id="list-search"   method="POST">
     @csrf
-    <input type="hidden" name="paket" value="{{ $paket }}">
+    <input type="hidden" name="paket" value="{{ $data_paket->name }}">
     @foreach ($soal as $item)
       @php
         $a=$a+1;

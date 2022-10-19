@@ -66,10 +66,12 @@ class SoalController extends Controller
         $soal = soal::where('paket_id', $req->paket)->where('is_deleted', 0)
         // ->orderBy('id','desc')
         ->get();
+        $paket =  PaketSoal::where('id', $soal->paket)->first();
         return view('soal.show',[
             'title' => 'Latihan Soal SiLas',
             'soal' => $soal,
             'paket' => $req->paket,
+            'data_paket' => $paket,
         ]);
     }
     public function list()
