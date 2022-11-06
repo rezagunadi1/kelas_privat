@@ -176,6 +176,9 @@
     {{-- <script src="//code.jquery.com/jquery-1.10.2.js"></script>--}}
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> 
   
+    {{-- CKEditor JS --}}
+    <script src="{{ asset('assets/ckeditor/ckeditor.js') }}"></script>
+    
     @stack('script')
     {{-- @push('script') --}}
         <script>
@@ -269,10 +272,22 @@
         $(".nav-bar").removeClass('active');
         $(".nav-buatSoal").addClass('active');
     }
+    if (title == 'Latihan Soal SiLas') {
+        $(".nav-bar").removeClass('active');
+        $(".nav-Practice").addClass('active');
+    }
+    if (title == 'Materi SiLas') {
+        $(".nav-bar").removeClass('active');
+        $(".nav-materi").addClass('active');
+    }
+    if (title == 'Create Materi') {
+        $(".nav-bar").removeClass('active');
+        $(".nav-create-materi").addClass('active');
+    }
     
-    $('.nav-materi').click(function() {
-        alert( "Coming soon" );
-      });
+    // $('.nav-materi').click(function() {
+    //     alert( "Coming soon" );
+    //   });
     // $(document).ready(function(){
     //     $('img').error(function(){
     //         $(this).attr('src', 'https://ayo.co.id/backend/assets/images/avatar-default.jpg');

@@ -53,6 +53,15 @@ Route::get('/news/create', [App\Http\Controllers\HomeController::class, 'create'
 Route::post('/news/store', [App\Http\Controllers\HomeController::class, 'store'])->name('news_store');
 
 
+Route::get('/materi', [App\Http\Controllers\MateriController::class, 'index'])->name('materi');
+Route::get('/materi/show/{slug}', [App\Http\Controllers\MateriController::class, 'show'])->name('show_materi');
+Route::get('/materi/create', [App\Http\Controllers\MateriController::class, 'create'])->name('create_materi');
+Route::post('/materi/store', [App\Http\Controllers\MateriController::class, 'store'])->name('store_materi');
+
+Route::match(['get', 'post'],'/materi/image-upload', [App\Http\Controllers\MateriController::class, 'uploadImage'])->name('upload_image_materi');
+// Route::post('/soal', [App\Http\Controllers\SoalController::class, 'show'])->name('goto_soal');
+
+
 Route::get('/about-us', function () {
     return view('home.about',[
         'title' => 'About Kelas Privat',
@@ -63,4 +72,6 @@ Route::get('/about-us', function () {
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::match(['get', 'post'],'/api/arduino/dht-pulse/{token}', [App\Http\Controllers\ApiArduinoControllers::class, 'dhtPulse'])->name('api_dht_pulse');
-Route::match(['get', 'post'],'/api/arduino/get-dht-pulse/{token}', [App\Http\Controllers\ApiArduinoControllers::class, 'dhtPulseGet'])->name('api_dht_pulse');
+Route::match(['get', 'post'],'/api/arduino/get-dht-pulse/detail/{token}', [App\Http\Controllers\ApiArduinoControllers::class, 'dhtPulseGetDetail'])->name('api_dht_pulse_detail');
+Route::match(['get', 'post'],'/api/arduino/get-dht-pulse/{user_id}', [App\Http\Controllers\ApiArduinoControllers::class, 'dhtPulseGet'])->name('api_dht_pulse');
+Route::match(['get', 'post'],'/api/arduino/get-dht-pulse/store/{user_id}', [App\Http\Controllers\ApiArduinoControllers::class, 'regisToken'])->name('regis_token');

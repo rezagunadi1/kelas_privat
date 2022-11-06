@@ -9,12 +9,12 @@
                 News
               </a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
               <a id="" class="nav-tanya-kelas nav-link side-bar" href="{{ URL::route('chat') }}">
                 <span data-feather="file"></span>
                 Tanya Kelas
               </a>
-            </li>
+            </li> --}}
             {{-- <li class="nav-item">
               <a id="" class="nav-Profile nav-link side-bar" href="{{ URL::route('profile') }}">
                 <span data-feather="shopping-cart"></span>
@@ -40,7 +40,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a id="" class="nav-materi nav-link side-bar" href="#">
+              <a id="" class="nav-materi nav-link side-bar" href="{{ URL::route('materi') }}">
                 <span data-feather="layers"></span>
                 Materi Pembelajaran
               </a>
@@ -58,6 +58,23 @@
                   <a id="" class="nav-buatSoal nav-link side-bar" href="{{ URL::route('list_paket') }}">
                     <span data-feather="layers"></span>
                     Buat Soal
+                  </a>
+                </li>
+                @endif
+            @endif
+            @if (!empty(Auth::user()->role))
+                @if (Auth::user()->role == 'admin' || Auth::user()->role == 'ADMIN')
+                    
+                {{-- <li class="nav-item">
+                  <a id="" class="nav-buatBerita nav-link side-bar" href="{{ URL::route('create_news') }}">
+                    <span data-feather="layers"></span>
+                    Buat Berita
+                  </a>
+                </li> --}}
+                <li class="nav-item">
+                  <a id="" class="nav-create-materi nav-link side-bar" href="{{ URL::route('create_materi') }}">
+                    <span data-feather="layers"></span>
+                    Buat Materi
                   </a>
                 </li>
                 @endif

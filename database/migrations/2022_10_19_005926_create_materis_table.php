@@ -17,8 +17,14 @@ class CreateMaterisTable extends Migration
             $table->id();
             $table->string('grade');
             $table->string('mapel');
-            $table->string('materi');
+            $table->string('title');
+            $table->string('tags');
+            $table->string('slug');
+            $table->string('thumbnail');
             $table->text('content');
+            $table->text('resume');
+            $table->bigInteger('user_id');
+            $table->integer('is_deleted')->default(0);
             $table->timestamps();
         });
     }

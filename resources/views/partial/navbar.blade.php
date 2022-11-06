@@ -10,12 +10,12 @@
                 News
             </a>
         </div>
-        <div class="col-auto px-md-2 px-lg-3">
+        {{-- <div class="col-auto px-md-2 px-lg-3">
             <a  style="color: white" id="" class="nav-tanya-kelas nav-link nav-bar" href="{{ URL::route('chat') }}">
                 
                 Tanya Kelas
             </a>
-        </div>
+        </div> --}}
         {{-- <div class="col-auto px-md-2 px-lg-3">
             <a  style="color: white" id="nav-Profile" class="nav-link nav-bar" href="{{ URL::route('profile') }}">
                 
@@ -41,7 +41,7 @@
             </a>
         </div>
         <div class="col-auto px-md-2 px-lg-3">
-            <a  style="color: white" id="" class="nav-materi nav-link nav-bar" href="#">
+            <a  style="color: white" id="" class="nav-materi nav-link nav-bar" href="{{ URL::route('materi') }}">
                 
                 Materi Pembelajaran
             </a>
@@ -52,6 +52,16 @@
                     <a  style="color: white" id="" class="nav-buatSoal nav-link nav-bar" href="{{ URL::route('list_paket') }}">
                             
                         Buat Soal
+                    </a>
+                </div>
+            @endif
+        @endif
+        @if (!empty(Auth::user()->role))
+            @if (Auth::user()->role == 'admin' || Auth::user()->role == 'ADMIN')
+                <div class="col-auto px-md-2 px-lg-3">
+                    <a  style="color: white" id="" class="nav-create-materi nav-link nav-bar" href="{{ URL::route('create_materi') }}">
+                            
+                        Buat Materi
                     </a>
                 </div>
             @endif
