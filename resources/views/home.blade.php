@@ -116,7 +116,7 @@ background-size: 100% 100%;
 <div class="mx-auto">
 
       <section>
-        <div class="container reveal fade-bottom px-0 pb-md-3 pb-1">
+        <div class=" reveal fade-bottom px-0 pb-md-3 pb-1">
             <div class="row shadow rounded p-3">
                 <div class="col-md-6 col-12 my-auto">
                     
@@ -144,7 +144,15 @@ background-size: 100% 100%;
       </section>
       
       <section>
-        <div class="container reveal fade-left">
+        <div class=" reveal fade-left">
+            <div class="row">
+                @for($i = 1; $i < 13; $i++)
+                    
+                <div class="col-4 px-0" style="border-radius:8%; background:white;">
+                    <img src='{{ URL::To("assets/img/testi/k$i.jpg") }}' class="img-fluid" style="border-radius:8%; height: auto; padding:1%" alt="">
+                </div>
+                @endfor
+            </div>
         </div>
       </section>
       
