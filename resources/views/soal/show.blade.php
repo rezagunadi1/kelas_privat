@@ -51,7 +51,7 @@
         {{ $a }}. {{ $item->soal }} 
         <div class="col-auto mb-2">
 
-            <img style="max-height: 90px;" class="" src="{{ URL::To("$item->image_soal") }}" alt="">    
+            <img style="width: 100%;" class="" src="{{ URL::To("$item->image_soal") }}" alt="">    
           </div>
       </div>
       <div class="row mx-0 ">
