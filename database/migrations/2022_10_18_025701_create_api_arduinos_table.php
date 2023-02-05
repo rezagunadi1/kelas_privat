@@ -16,9 +16,15 @@ class CreateApiArduinosTable extends Migration
         Schema::create('api_arduinos', function (Blueprint $table) {
             $table->id();
             $table->string('token_id');
+            $table->string('lat')->nullable();
+            $table->string('lng')->nullable();
+            $table->dateTime('time')->nullable();
             $table->bigInteger('humidity')->nullable();
+            $table->bigInteger('humidity_real')->nullable();
             $table->bigInteger('temperature')->nullable();
+            $table->bigInteger('temperature_real')->nullable();
             $table->bigInteger('pulse')->nullable();
+            $table->bigInteger('pulse_real')->nullable();
             $table->timestamps();
         });
     }

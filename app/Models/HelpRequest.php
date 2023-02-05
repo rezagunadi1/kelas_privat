@@ -5,11 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ToolsAddress extends Model
+class HelpRequest extends Model
 {
     use HasFactory;
-
-    protected $table = 'tools_address';
+    protected $table = 'help_request';
 
     /**
      * The attributes that are mass assignable.
