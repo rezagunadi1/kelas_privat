@@ -10,7 +10,7 @@ use App\Http\Controllers\Helpers;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 
-class Auth extends Controller
+class ApiAuth extends Controller
 {
     //
     public function dhtPulseGetDetail($token_id, Request $req)

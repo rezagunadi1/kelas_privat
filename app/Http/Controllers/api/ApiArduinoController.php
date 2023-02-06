@@ -4,11 +4,13 @@ namespace App\Http\Controllers\api;
 
 use App\Models\User;
 use App\Models\ApiArduino;
+use App\Models\HelpRequest;
 use App\Models\ToolsAddress;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Helpers;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+
 
 
 class ApiArduinoControllers extends Controller
@@ -27,7 +29,7 @@ class ApiArduinoControllers extends Controller
     public function dhtPulseGetDetail($token_id, Request $req)
     {
 
-        $data = ApiArduino::where('token_id', $token_id)->orderBy('id', 'desc')->skip($req->skip)->take($req->take)->get();
+        $data = ApiArduino::where('token_id', $token_id)->orderBy('id', 'desc')->skip(0)->take(10)->get();
         // $data = new ApiArduino;
         // $data->token_id = $token_id;
         // $data->humidity = $req->humidity;
@@ -66,32 +68,68 @@ class ApiArduinoControllers extends Controller
             'signature' => null
         ));
     }
+    public function helpRequest(Request $req)
+    {
+        $user = User::where('remember_token', $req->token)->first();
+        $user_id = 0;
+        if (!$user) {
+
+            $user_id = 0;
+        } else {
+
+            $user_id = $user->id;
+        }
+        // if (!$user) {
+        //     return response()->json(array(
+        //         'error' => true,
+        //         'message' => "User tidak di temukan",
+        //         'data' => null,
+        //         'status_code' => 200,
+        //         'signature' => null
+        //     ));
+        // }
+        $data = new HelpRequest();
+        $data->user_id = $user_id;
+        $data->name = $req->name;
+        $data->phone = $req->phone;
+        $data->email = $req->email;
+        $data->message = $req->message;
+        $data->save();
+
+        return response()->json(array(
+            'error' => false,
+            'message' => "Berhasil menyimpan Data",
+            'data' => $data,
+            'status_code' => 200,
+            'signature' => null
+        ));
+    }
 
     public function regisDevice($token_id, Request $req)
     {
         try {
             //code...
-            $random = Helpers::generateRandomString(10);
-            $cekUser = ToolsAddress::where('token', $random)->first();
-            if ($cekUser) {
-                # code...
-                for ($i = 0; $i < 9999999; $i++) {
-                    # code...
+            // $random = Helpers::generateRandomString(10);
+            // $cekUser = ToolsAddress::where('token', $random)->first();
+            // if ($cekUser) {
+            //     # code...
+            //     for ($i = 0; $i < 9999999; $i++) {
+            //         # code...
 
-                    $random = Helpers::generateRandomString(10);
-                    $cekLoop = ToolsAddress::where('token', $random)->first();
-                    if (!$cekLoop) {
-                        # code...
-                        break;
-                    }
-                }
-            }
+            //         $random = Helpers::generateRandomString(10);
+            //         $cekLoop = ToolsAddress::where('token', $random)->first();
+            //         if (!$cekLoop) {
+            //             # code...
+            //             break;
+            //         }
+            //     }
+            // }
             $user = User::where('remember_token', $token_id)->first();
             $data = new ToolsAddress();
-            $data->user_id = $req->user_id;
-            $data->token = $random;
+            $data->user_id = $user->id;
+            $data->token = $req->address;
             $data->name = $req->name;
-            $data->user_name = $req->user_name;
+            $data->user_name = $user->name;
             $data->save();
             // $data = ToolsAddress::where('user_id',$user_id)->get();
             // $data = new ApiArduino;
@@ -124,7 +162,8 @@ class ApiArduinoControllers extends Controller
     {
         try {
             //code...
-            $data = ToolsAddress::where('token', $token_id)->first();
+            $user = User::where('remember_token', $token_id)->first();
+            $data = ToolsAddress::where('user_id', $user->id)->where('token', $req->token)->first();
             $data->is_deleted = 1;
             $data->save();
             // $data = ToolsAddress::where('user_id',$user_id)->get();

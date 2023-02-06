@@ -11,7 +11,7 @@ use App\Http\Controllers\Helpers;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 
-class ApiArduinoControllers extends Controller
+class ApiArduinoControllersOld extends Controller
 {
     //
     public function dhtPulse($token_id, Request $req)
