@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Hash;
 
 
 
-class ApiArduinoControllers extends Controller
+class ApiArduinoController extends Controller
 {
     //
     public function dhtPulse($token_id, Request $req)
