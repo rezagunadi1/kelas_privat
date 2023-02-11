@@ -21,9 +21,13 @@ class ApiArduinoController extends Controller
         // $data = ApiArduino::where('token_id', $token_id)->skip($req->skip)->take($req->take)->get();
         $data = new ApiArduino;
         $data->token_id = $token_id;
-        $data->humidity = $req->humidity;
-        $data->temperature = $req->temperature;
-        $data->pulse = $req->pulse;
+        $data->port0 = $req->port0;
+        $data->port1 = $req->port1;
+        $data->port2 = $req->port2;
+        $data->port3 = $req->port3;
+        $data->port4 = $req->port4;
+        $data->port5 = $req->port5;
+        $data->port6 = $req->port6;
         $data->save();
     }
     public function dhtPulseGetDetail($token_id, Request $req)
