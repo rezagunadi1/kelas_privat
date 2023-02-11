@@ -19,12 +19,13 @@ class CreateApiArduinosTable extends Migration
             $table->string('lat')->nullable();
             $table->string('lng')->nullable();
             $table->dateTime('time')->nullable();
-            $table->bigInteger('humidity')->nullable();
-            $table->bigInteger('humidity_real')->nullable();
-            $table->bigInteger('temperature')->nullable();
-            $table->bigInteger('temperature_real')->nullable();
-            $table->bigInteger('pulse')->nullable();
-            $table->bigInteger('pulse_real')->nullable();
+            $table->double('port0')->nullable();
+            $table->double('port1')->nullable();
+            $table->double('port2')->nullable();
+            $table->double('port3')->nullable();
+            $table->double('port4')->nullable();
+            $table->double('port5')->nullable();
+            $table->double('port6')->nullable();
             $table->timestamps();
         });
     }
