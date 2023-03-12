@@ -32,8 +32,10 @@ class ApiArduinoController extends Controller
     }
     public function dhtPulseGetDetail($token_id, Request $req)
     {
+        $limit=$req->has('take')?$req->take:10;
+        $skip=$req->has('skip')?$req->skip:0;
 
-        $data = ApiArduino::where('token_id', $token_id)->orderBy('id', 'desc')->skip(0)->take(10)->get();
+        $data = ApiArduino::where('token_id', $token_id)->orderBy('id', 'desc')->skip($skip)->take($limit)->get();
         // $data = new ApiArduino;
         // $data->token_id = $token_id;
         // $data->humidity = $req->humidity;
