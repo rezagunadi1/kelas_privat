@@ -26,7 +26,22 @@ class CreateApiArduinosTable extends Migration
             $table->double('port4')->nullable();
             $table->double('port5')->nullable();
             $table->double('port6')->nullable();
+            $table->string('value0')->nullable();
+            $table->string('value1')->nullable();
+            $table->string('value2')->nullable();
+            $table->string('value3')->nullable();
+            $table->string('value4')->nullable();
+            $table->string('value5')->nullable();
+            $table->string('value6')->nullable();
+            $table->string('type')->nullable()->comment('temperatur,humidity,light,cm,volt,ampere,gram');
+            $table->string('type')->nullable()->comment('temperatur,humidity,light,cm,volt,ampere,gram');
+            $table->string('type')->nullable()->comment('temperatur,humidity,light,cm,volt,ampere,gram');
+            $table->string('type')->nullable()->comment('temperatur,humidity,light,cm,volt,ampere,gram');
+            $table->string('type')->nullable()->comment('temperatur,humidity,light,cm,volt,ampere,gram');
+            $table->string('type')->nullable()->comment('temperatur,humidity,light,cm,volt,ampere,gram');
+            $table->string('type')->nullable()->comment('temperatur,humidity,light,cm,volt,ampere,gram');
             $table->timestamps();
+            $table->dateTime('deleted_at')->nullable();
         });
     }
 
