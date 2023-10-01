@@ -51,6 +51,30 @@ class ApiArduinoController extends Controller
             'signature' => null
         ));
     }
+    public function dhtPulseGetDetailAndRemove($token_id, Request $req)
+    {
+        $limit=$req->has('take')?$req->take:10;
+        $skip=$req->has('skip')?$req->skip:0;
+
+        $data = ApiArduino::where('token_id', $token_id)->orderBy('id', 'desc')->first();
+        $sendData =
+        array("word" => $data->port0, "location" => $data->port0);
+        $data->delete();
+        // $data = new ApiArduino;
+        // $data->token_id = $token_id;
+        // $data->humidity = $req->humidity;
+        // $data->temperature = $req->temperature;
+        // $data->pulse = $req->pulse;
+        // $data->save();
+
+        return response()->json(array(
+            'error' => false,
+            'message' => "Berhasil Mengambil Data",
+            'data' => $sendData,
+            'status_code' => 200,
+            'signature' => null
+        ));
+    }
 
     public function dhtPulseGet($token_id, Request $req)
     {

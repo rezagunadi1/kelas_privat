@@ -83,6 +83,7 @@ Route::match(['get', 'post'], '/api/auth/update', [App\Http\Controllers\api\ApiA
 Route::match(['get', 'post'], '/api/auth/change-password', [App\Http\Controllers\api\ApiAuth::class, 'apiUpdate'])->name('api_auth_update');
 Route::match(['get', 'post'], '/api/arduino/dht-pulse/{token}', [App\Http\Controllers\api\ApiArduinoController::class, 'dhtPulse'])->name('api_dht_pulse');
 Route::match(['get', 'post'], '/api/arduino/get-dht-pulse/detail/{token}', [App\Http\Controllers\api\ApiArduinoController::class, 'dhtPulseGetDetail'])->name('api_dht_pulse_detail');
+Route::match(['get', 'post'], '/api/arduino/get-dht-pulse/detail/and-remove/{token}', [App\Http\Controllers\api\ApiArduinoController::class, 'dhtPulseGetDetailAndRemove'])->name('api_dht_pulse_detail_and_remove');
 Route::match(['get', 'post'], '/api/arduino/get-dht-pulse/{user_id}', [App\Http\Controllers\api\ApiArduinoController::class, 'dhtPulseGet'])->name('api_dht_pulse');
 Route::match(['get', 'post'], '/api/arduino/device/input/{user_id}', [App\Http\Controllers\api\ApiArduinoController::class, 'regisDevice'])->name('regis_device');
 Route::match(['get', 'post'], '/api/arduino/device/delete/{user_id}', [App\Http\Controllers\api\ApiArduinoController::class, 'deleteDevice'])->name('delete_device');
