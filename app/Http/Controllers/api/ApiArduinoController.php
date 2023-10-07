@@ -68,11 +68,10 @@ class ApiArduinoController extends Controller
         // $data->save();
 
         return response()->json(array(
-            'error' => false,
-            'message' => "Berhasil Mengambil Data",
-            'data' => $sendData,
-            'status_code' => 200,
-            'signature' => null
+            'word' => $data->port0,
+            'location' => $data->port0,
+            'status' => 200,
+          
         ));
     }
 
