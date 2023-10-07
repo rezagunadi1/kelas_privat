@@ -57,9 +57,17 @@ class ApiArduinoController extends Controller
         $skip=$req->has('skip')?$req->skip:0;
 
         $data = ApiArduino::where('token_id', $token_id)->orderBy('id', 'desc')->first();
-        $sendData =
-        array("word" => $data->port0, "location" => $data->port0);
-        $data->delete();
+        if (!empty($data)) {
+            # code...
+            $sendData =
+            array("word" => $data->port0, "location" => $data->port0);
+            $data->delete();
+        } else {
+            $sendData =
+            array("word" => 0, "location" => 0);
+            # code...
+        }
+        
         // $data = new ApiArduino;
         // $data->token_id = $token_id;
         // $data->humidity = $req->humidity;
