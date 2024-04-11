@@ -101,3 +101,4 @@ Route::get('/api/get-test-answer', [App\Http\Controllers\api\TestController::cla
 Route::get('/api/test-detail-history', [App\Http\Controllers\api\TestController::class, 'detailHistory'])->name('detailHistory');
 Route::get('/api/my-test', [App\Http\Controllers\api\TestController::class, 'myTest'])->name('myTest');
 Route::post('/api/change-profile-images', [App\Http\Controllers\api\ApiAuth::class, 'changeProfileImage'])->name('changeProfileImage');
+Route::post('/api/create-news', [App\Http\Controllers\api\NewsController::class, 'createNews'])->name('createNews');

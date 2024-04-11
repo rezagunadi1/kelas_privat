@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Image;
 use App\Models\news;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 
 class NewsController extends Controller
 {
@@ -53,6 +54,54 @@ class NewsController extends Controller
             'error' => false,
             'message' => "Berhasil Mengambil Data",
             'data' => $data,
+            'status_code' => 200,
+            'signature' => null
+        ));
+    }
+
+
+    public function createNews(Request $req)
+    {
+
+        $user = User::where('remember_token', $req->mobile_token)->first();
+        if (!$user) {
+            return response()->json(array(
+                'error' => true,
+                'message' => "Invalid Credential",
+                'data' => null,
+                'status_code' => 201,
+                'signature' => null
+            ));
+        }
+        $image = '';
+
+        Log::info("answer, masuk bos");
+        Log::info($req);
+        if (isset($req->image)) {
+            $imgPath = uploadFile($req->image, 'images/soal');
+            if ($imgPath) {
+                $image = $imgPath;
+            }
+        }
+
+        $news = new news();
+        // $news = new news();
+        $news->user_id=$user->id;
+        $news->title=$req->title;
+        $news->description=$req->content;
+        $news->category=$req->tag;
+        $news->created_by=$user->name;
+        $news->save();
+        
+        $image = new Image();
+        $image->news_id= $news->id;
+        $image->url= $image;
+        $image->save();
+
+        return response()->json(array(
+            'error' => false,
+            'message' => "Berhasil menyimpan Data",
+            'data' => $news,
             'status_code' => 200,
             'signature' => null
         ));
