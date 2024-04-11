@@ -16,7 +16,10 @@ class CreatePaketSoalsTable extends Migration
         Schema::create('paket_soals', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id');
-            $table->string('name')->unique();
+            $table->string('name');
+            $table->string('jenjang');
+            $table->string('mapel');
+            $table->string('tahun');
             $table->bigInteger('is_public')->default(1);
             $table->bigInteger('is_deleted')->default(0);
             $table->timestamps();

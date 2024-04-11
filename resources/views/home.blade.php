@@ -20,16 +20,44 @@
 
 
 
-@section('content')
+@section('content-top')
   
-<div class="mt-3 p-3 p-md-5f my-auto rounded" style=' background-image: url("/assets/img/edu.jpg"); background-repeat: no-repeat;
+<div class="p-3 p-md-5f my-auto main-color-bg" style=' 
+/* background-image: url("/assets/img/edu.jpg"); background-repeat: no-repeat;
 background-position: right;
 background-size: 100% 100%;
   -webkit-background-size: strech;
   -moz-background-size: strech;
   -o-background-size: strech;
-  background-size: strech;'>
-    <div class="fs-2 fw-bold col-12 mx-auto text-center stroke" id="colorChange1">
+  background-size: strech; */
+  '
+  >
+  <div class="col-md-9  mx-auto">
+
+      <div class="row">
+        <div class="col-md-6 ">
+            <div class="s48-500-white py-5">
+    
+                Les Privat Terbaik Di Indonesia
+            </div>
+            <div class="s16-400-white ">
+    
+                Berkat dukungan pendidikan yang tersistem dan di dukung oleh tutor yang berpengalaman 
+            </div>
+            <div class="s16-400-white ">
+    
+                Tidak hanya membimbing siswa dalam Akademik
+            </div>
+            <div class="s16-400-white pb-5">
+    
+                Kelas Privat juga turut andil dalam mengajar, mendidik dan memaksimalkan potensi anak dalam bidang Akademik, Karakter dan Akhlaq   
+            </div>
+        </div>
+        <div class="col-md-6 ">
+        </div>
+      </div>
+  </div>
+    {{-- <div class="fs-2 fw-bold col-12 mx-auto text-center stroke" id="colorChange1">
         Fasilitas Gratis 
     </div>
     <div class="row justify-content-center">
@@ -48,7 +76,7 @@ background-size: 100% 100%;
         <div class="col-md-auto col-12 fs-4" style="-webkit-text-stroke: 1px black; font-weight:500; color:white">
             ⦿ Konsultasi via WA
         </div>
-    </div>
+    </div> --}}
 </div>
 <div class="mx-auto mt-4 mb-3">
     <div class="text-center fs-1" style="-webkit-text-stroke: 1px black; font-weight:600; color:blue">
@@ -356,4 +384,27 @@ background-size: 100% 100%;
 
         window.setInterval(changeColor,700 );
     </script>
+    <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDHPln6YqjqevdPdtTN7PPBRLxnj0UaTh0",
+    authDomain: "kelas-privat-951ec.firebaseapp.com",
+    projectId: "kelas-privat-951ec",
+    storageBucket: "kelas-privat-951ec.appspot.com",
+    messagingSenderId: "1088740947071",
+    appId: "1:1088740947071:web:fd4d3e2102353dabbe7b4a",
+    measurementId: "G-3Q1KT5VB70"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 @endpush

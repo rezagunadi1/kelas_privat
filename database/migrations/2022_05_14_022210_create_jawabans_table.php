@@ -18,6 +18,7 @@ class CreateJawabansTable extends Migration
             $table->bigInteger('user_id');
             $table->bigInteger('id_soal')->nullable();
             $table->string('id_paket')->nullable();
+            $table->string('answer_id')->nullable();
             $table->longText('kunci')->nullable();
             $table->longText('jawaban')->nullable();
             $table->bigInteger('is_true')->default(0);

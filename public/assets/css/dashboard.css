@@ -68,7 +68,12 @@ body {
 /*
  * Navbar
  */
-
+.main-color-bg{
+background-color: #00416d;
+}
+.main-color{
+  color: #00416d;
+}
 .navbar-brand {
   padding-top: .75rem;
   padding-bottom: .75rem;

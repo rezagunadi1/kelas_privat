@@ -8,7 +8,9 @@ use App\Models\ToolsAddress;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Helpers;
 use App\Http\Controllers\Controller;
+use App\Models\VersionModel;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 
 class ApiAuth extends Controller
 {
@@ -111,8 +113,6 @@ class ApiAuth extends Controller
                 'signature' => null
             ));
         }
-        
-
     }
     protected function apiRegist(Request $req)
     {
@@ -173,6 +173,98 @@ class ApiAuth extends Controller
             'error' => false,
             'message' => "Login Berhasil",
             'data' => $data,
+            'status_code' => 200,
+            'signature' => null
+        ));
+    }
+    protected function mobileVersion(Request $req)
+    {
+        $data = VersionModel::orderBy('id', 'desc')->first();
+        if ($data) {
+            return response()->json(array(
+                'error' => false,
+                'message' => "Version",
+                'data' => $data,
+                'status_code' => 200,
+                'signature' => null
+            ));
+        } else {
+            return response()->json(array(
+                'error' => true,
+                'message' => "Email atau password salah",
+                'data' => null,
+                'status_code' => 200,
+                'signature' => null
+            ));
+        }
+    }
+    protected function profile(Request $req)
+    {
+        $user = User::where('remember_token', $req->mobile_token)->first();
+        if (!$user) {
+            return response()->json(array(
+                'error' => true,
+                'message' => "Invalid Credential",
+                'data' => null,
+                'status_code' => 201,
+                'signature' => null
+            ));
+        }
+        return response()->json(array(
+            'error' => false,
+            'message' => "Version",
+            'data' => $user,
+            'status_code' => 200,
+            'signature' => null
+        ));
+    }
+
+
+    public function changeProfileImage(Request $req)
+    {
+
+        $user = User::where('remember_token', $req->mobile_token)->first();
+        if (!$user) {
+            return response()->json(array(
+                'error' => true,
+                'message' => "Invalid Credential",
+                'data' => null,
+                'status_code' => 201,
+                'signature' => null
+            ));
+        }
+        //         id
+        // question
+        // answer_a
+        // answer_b
+        // answer_c
+        // answer_d
+        // answer_e
+        // the_key
+        // question_image
+        // a_image
+        // b_image
+        // c_image
+        // d_image
+        // e_image
+
+        Log::info("answer, masuk bos");
+        Log::info($req);
+        if (isset($req->image)) {
+            $imgPath = uploadFile($req->image, 'images/profile');
+            if ($imgPath) {
+                $image = $imgPath;
+                $user->image=$image;
+            }
+        }
+
+        $user->save();
+
+
+        return response()->json(array(
+            'error' => false,
+            'message' => "Berhasil menyimpan Data",
+            'data' => $user,
             'status_code' => 200,
             'signature' => null
         ));

@@ -94,8 +94,9 @@
     <link href="{{ URL::To('/assets/css/texting.css') }}" rel="stylesheet">
 
 </head>
-<header class="navbar navbar-dark sticky-top  bg-gradient flex-md-nowrap p-0 shadow" style="background-color: #1A237E">
+<header class="navbar navbar-light sticky-top col-md-9 mx-auto bg-gradient flex-md-nowrap p-0 " style="background-color: #ffffff">
 {{-- <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow"> --}}
+    
     @include('partial.navbar')
     @include('layouts.flash')
 
@@ -157,6 +158,7 @@
         </nav> --}}
         <div class="row">
             @include('partial.side-bar')
+            @yield('content-top')
             <main class="col-11 mx-auto col-lg-10 px-0 h-100" style="background-color: {{ $background }}">
                 {{-- <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2  border-bottom">
 
@@ -167,7 +169,7 @@
         </div>
         
     <a href="https://api.whatsapp.com/send?phone=6281211006445&text=Halo%20nama%20saya%20......%20saya,%20mau%20tanya%20terkait">
-        <img src="{{ URL::To("/assets/img/WhatsApp_icon.png") }}" style="position: fixed; bottom: 2%; right:2%; width:70px;" alt="">
+        <img src="{{ URL::To("/assets/img/WhatsApp_icon_new.png") }}" style="position: fixed; bottom: 2%; right:2%; width:230px;" alt="">
     </a>
     </div>
     

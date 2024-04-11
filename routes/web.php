@@ -34,7 +34,7 @@ Route::post('/komen/store', [App\Http\Controllers\KomenController::class, 'store
 Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
 Route::post('/profile/{id?}', [App\Http\Controllers\ProfileController::class, 'store'])->name('profile_edit');
 
-Route::get('/practice', [App\Http\Controllers\SoalController::class, 'index'])->name('practice');
+Route::get('/test', [App\Http\Controllers\SoalController::class, 'index'])->name('test');
 
 Route::post('/jawaban', [App\Http\Controllers\SoalController::class, 'showHasil'])->name('jawaban');
 Route::post('/soal', [App\Http\Controllers\SoalController::class, 'show'])->name('goto_soal');
@@ -87,3 +87,17 @@ Route::match(['get', 'post'], '/api/arduino/get-dht-pulse/detail/and-remove/{tok
 Route::match(['get', 'post'], '/api/arduino/get-dht-pulse/{user_id}', [App\Http\Controllers\api\ApiArduinoController::class, 'dhtPulseGet'])->name('api_dht_pulse');
 Route::match(['get', 'post'], '/api/arduino/device/input/{user_id}', [App\Http\Controllers\api\ApiArduinoController::class, 'regisDevice'])->name('regis_device');
 Route::match(['get', 'post'], '/api/arduino/device/delete/{user_id}', [App\Http\Controllers\api\ApiArduinoController::class, 'deleteDevice'])->name('delete_device');
+
+
+Route::match(['get', 'post'], '/api/get-version', [App\Http\Controllers\api\ApiAuth::class, 'mobileVersion'])->name('mobileVersion');
+Route::match(['get', 'post'], '/api/profile', [App\Http\Controllers\api\ApiAuth::class, 'profile'])->name('profile');
+Route::match(['get', 'post'], '/api/news/', [App\Http\Controllers\api\NewsController::class, 'news'])->name('news');
+Route::match(['get', 'post'], '/api/test', [App\Http\Controllers\api\TestController::class, 'list'])->name('list');
+Route::match(['get', 'post'], '/api/test-detail', [App\Http\Controllers\api\TestController::class, 'detail'])->name('detail');
+Route::post('/api/test-answer', [App\Http\Controllers\api\TestController::class, 'answer'])->name('answer');
+Route::post('/api/create-test-package', [App\Http\Controllers\api\TestController::class, 'createTestPackage'])->name('createTestPackage');
+Route::post('/api/create-test-package-detail', [App\Http\Controllers\api\TestController::class, 'createTestPackageDetail'])->name('createTestPackageDetail');
+Route::get('/api/get-test-answer', [App\Http\Controllers\api\TestController::class, 'getAnswer'])->name('getAnswer');
+Route::get('/api/test-detail-history', [App\Http\Controllers\api\TestController::class, 'detailHistory'])->name('detailHistory');
+Route::get('/api/my-test', [App\Http\Controllers\api\TestController::class, 'myTest'])->name('myTest');
+Route::post('/api/change-profile-images', [App\Http\Controllers\api\ApiAuth::class, 'changeProfileImage'])->name('changeProfileImage');
