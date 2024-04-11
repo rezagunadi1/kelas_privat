@@ -55,16 +55,19 @@ class TestController extends Controller
         if ($req->has('mapel')) {
             $mapel = $req->mapel;
         }
+        if ($req->has('tahun')) {
+            $tahun = $req->tahun;
+        }
         if ($req->has('search')) {
             $search = $req->search;
         }
+        $paket = $paket->where('jenjang', $jenjang);
+        $paket = $paket->where('mapel', $mapel);
+        $paket = $paket->where('tahun', $tahun);
+        $paket = $paket->where('name', 'LIKE', '%' . $search . '%');
         if ($user->role == null) {
             # code...
             $paket = $paket->where('user_id', 1);
-            $paket = $paket->where('jenjang', $jenjang);
-            $paket = $paket->where('mapel', $mapel);
-            $paket = $paket->where('tahun', $tahun);
-            $paket = $paket->where('name', 'LIKE', '%' . $search . '%');
         } else {
             # code...
             $role = $user->role;
