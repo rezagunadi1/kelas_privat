@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Log;
 class NewsController extends Controller
 {
     //
-    public function news( Request $req)
+    public function news(Request $req)
     {
         $user = User::where('remember_token', $req->mobile_token)->first();
         if (!$user) {
@@ -28,18 +28,18 @@ class NewsController extends Controller
             ));
         }
         $take = 10;
-        $skip =0;
+        $skip = 0;
         if ($req->has('take')) {
-            $take= $req->take;
+            $take = $req->take;
         }
         if ($req->has('skip')) {
-            $skip= $req->skip;
+            $skip = $req->skip;
         }
         $data = news::orderBy('id', 'desc')->take($take)->skip($skip)->get();
         $newsId = $data->pluck('id')->toArray();
         $images = Image::whereIn('news_id', $newsId)->get();
         foreach ($data as $value) {
-            $imageArray= [];
+            $imageArray = [];
             foreach ($images as  $image) {
                 # code...
                 if ($image->news_id == $value->id) {
@@ -86,17 +86,17 @@ class NewsController extends Controller
 
         $news = new news();
         // $news = new news();
-        $news->user_id=$user->id;
-        $news->title=$req->title;
-        $news->description=$req->content;
-        $news->category=$req->tag;
-        $news->created_by=$user->name;
+        $news->user_id = $user->id;
+        $news->title = $req->title;
+        $news->description = $req->content;
+        $news->category = $req->tag;
+        $news->created_by = $user->name;
         $news->save();
-        
-        $image = new Image();
-        $image->news_id= $news->id;
-        $image->url= $image;
-        $image->save();
+
+        $imageDB = new Image();
+        $imageDB->news_id = $news->id;
+        $imageDB->url = $image;
+        $imageDB->save();
 
         return response()->json(array(
             'error' => false,
