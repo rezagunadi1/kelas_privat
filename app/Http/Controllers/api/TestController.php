@@ -12,9 +12,12 @@ use App\Models\Image;
 use App\Models\jawaban;
 use App\Models\news;
 use App\Models\PaketSoal;
+use App\Models\ShareManagerDB;
 use App\Models\soal;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
+use ShareManager;
 
 class TestController extends Controller
 {
@@ -186,6 +189,12 @@ class TestController extends Controller
         $answer = new AnswerPackages();
         $answer->user_id = $user->id;
         $answer->package_id = $req->test_id;
+        if ($req->has('tutor_id')) {
+
+            $answer->tutor_id = $req->tutor_id;
+        } else {
+            $answer->tutor_id = 0;
+        }
         $answer->save();
         foreach ($req->answer as  $value) {
             # code...
@@ -361,27 +370,27 @@ class TestController extends Controller
         $package->owner_id = $user->id;
 
 
-        if($question_image!=''){
+        if ($question_image != '') {
 
             $package->image_soal = $question_image;
         }
-        if($a_image!=''){
+        if ($a_image != '') {
 
             $package->image_a = $a_image;
         }
-        if($b_image!=''){
+        if ($b_image != '') {
 
             $package->image_b = $b_image;
         }
-        if($c_image!=''){
+        if ($c_image != '') {
 
             $package->image_c = $c_image;
         }
-        if($d_image!=''){
+        if ($d_image != '') {
 
             $package->image_d = $d_image;
         }
-        if($e_image!=''){
+        if ($e_image != '') {
 
             $package->image_e = $e_image;
         }
@@ -410,10 +419,10 @@ class TestController extends Controller
                 'status_code' => 201,
                 'signature' => null
             ));
-        }  
+        }
         Log::info("answer, masuk bos");
         Log::info($req);
-        $package = soal::where('id',$req->id)->where('owner_id',$user->id)->first();
+        $package = soal::where('id', $req->id)->where('owner_id', $user->id)->first();
         $package->is_deleted = 1;;
         $package->save();
 
@@ -439,9 +448,9 @@ class TestController extends Controller
                 'signature' => null
             ));
         }
-     
+
         $package = PaketSoal::where('id', $req->id)->where('user_id', $user->id)->first();
-        $package->is_deleted=1;;
+        $package->is_deleted = 1;;
 
         $package->save();
 
@@ -450,6 +459,131 @@ class TestController extends Controller
             'error' => false,
             'message' => "Berhasil menghapus Soal",
             'data' => $package,
+            'status_code' => 200,
+            'signature' => null
+        ));
+    }
+    public function shareSoal(Request $req)
+    {
+
+        $user = User::where('remember_token', $req->mobile_token)->first();
+        if (!$user) {
+            return response()->json(array(
+                'error' => true,
+                'message' => "Invalid Credential",
+                'data' => null,
+                'status_code' => 201,
+                'signature' => null
+            ));
+        }
+
+        $package = ShareManagerDB::where('user_id', $user->id)->where('package_id', $req->id)->first();
+
+        if (!$package) {
+            # code...
+            $package = new ShareManagerDB();
+            $package->user_id = $user->id;
+            $package->package_id = $req->id;
+            $token = randomString(48);
+            $package->token = $user->id . $req->id . $token;
+            $package->save();
+        }
+
+        return response()->json(array(
+            'error' => false,
+            'message' => "Berhasil menghapus Soal",
+            'data' => $package,
+            'status_code' => 200,
+            'signature' => null
+        ));
+    }
+    public function detailByToken(Request $req)
+    {
+
+        $user = User::where('remember_token', $req->mobile_token)->first();
+        if (!$user) {
+            return response()->json(array(
+                'error' => true,
+                'message' => "Invalid Credential",
+                'data' => null,
+                'status_code' => 201,
+                'signature' => null
+            ));
+        }
+        $targetPackage
+            = ShareManagerDB::where('token', $req->token)->first();
+
+        $soal = soal::where('paket_id', $targetPackage->package_id)->where('is_deleted', 0)->orderBy('id', 'asc')->get();
+        foreach ($soal as $value) {
+            $value->tutor_id = $targetPackage->user_id;
+        }
+
+        return response()->json(array(
+            'error' => false,
+            'message' => "Berhasil Mengambil Data",
+            'data' => $soal,
+            'status_code' => 200,
+            'signature' => null
+        ));
+    }
+    public function hasilTestSiswa(Request $req)
+    {
+
+        $user = User::where('remember_token', $req->mobile_token)->first();
+        if (!$user) {
+            return response()->json(array(
+                'error' => true,
+                'message' => "Invalid Credential",
+                'data' => null,
+                'status_code' => 201,
+                'signature' => null
+            ));
+        }
+        $packageList
+            = AnswerPackages::where('tutor_id', $user->id)->join('users')
+            ->select('answer_packages.*', DB::raw('COUNT(user_id) as count'), 'users.name', 'users.image', 'user.email', 'user.hp')
+            ->groupBy('user_id')->get();
+
+
+        return response()->json(array(
+            'error' => false,
+            'message' => "Berhasil Mengambil Data",
+            'data' => $packageList,
+            'status_code' => 200,
+            'signature' => null
+        ));
+    }
+    public function hasilTestSiswaPackageList(Request $req)
+    {
+
+        $user = User::where('remember_token', $req->mobile_token)->first();
+        if (!$user) {
+            return response()->json(array(
+                'error' => true,
+                'message' => "Invalid Credential",
+                'data' => null,
+                'status_code' => 201,
+                'signature' => null
+            ));
+        }
+        $answer = AnswerPackages::where('answer_packages.user_id', $req->user_id);
+        $take = 10;
+        $skip = 0;
+        if ($req->has('take')) {
+            $take = $req->take;
+        }
+        if ($req->has('skip')) {
+            $skip = $req->skip;
+        }
+        $answer = $answer->join('paket_soals', 'paket_soals.id', '=', 'answer_packages.package_id');
+        $answer = $answer->select('paket_soals.*', 'answer_packages.id as test_history_id', 'answer_packages.created_at as test_created_at');
+        $answer = $answer->orderBy('id', 'desc')->take($take)->skip($skip)->get();
+
+
+        return response()->json(array(
+            'error' => false,
+            'message' => "Berhasil Mengambil Data",
+            'data' => $answer,
             'status_code' => 200,
             'signature' => null
         ));

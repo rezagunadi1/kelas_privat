@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AnswerPackages extends Migration
+class ShareManager extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class AnswerPackages extends Migration
      */
     public function up()
     {
-        Schema::create('answer_packages', function (Blueprint $table) {
+        Schema::create('share_manager', function (Blueprint $table) {
             $table->id();
-            $table->integer('package_id');
             $table->integer('user_id');
-            $table->integer('tutor_id')->default(0);
-
+            $table->integer('package_id');
+            $table->text('token');
             $table->timestamps();
-            $table->dateTime('deleted_at')->nullable();
         });
     }
 
@@ -31,6 +29,6 @@ class AnswerPackages extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('answer_packages');
+        Schema::dropIfExists('share_manager');
     }
 }

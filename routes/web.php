@@ -93,12 +93,27 @@ Route::match(['get', 'post'], '/api/get-version', [App\Http\Controllers\api\ApiA
 Route::match(['get', 'post'], '/api/profile', [App\Http\Controllers\api\ApiAuth::class, 'profile'])->name('profile');
 Route::match(['get', 'post'], '/api/news/', [App\Http\Controllers\api\NewsController::class, 'news'])->name('news');
 Route::match(['get', 'post'], '/api/test', [App\Http\Controllers\api\TestController::class, 'list'])->name('list');
+
+
 Route::match(['get', 'post'], '/api/test-detail', [App\Http\Controllers\api\TestController::class, 'detail'])->name('detail');
 Route::post('/api/test-answer', [App\Http\Controllers\api\TestController::class, 'answer'])->name('answer');
 Route::post('/api/create-test-package', [App\Http\Controllers\api\TestController::class, 'createTestPackage'])->name('createTestPackage');
 Route::post('/api/create-test-package-detail', [App\Http\Controllers\api\TestController::class, 'createTestPackageDetail'])->name('createTestPackageDetail');
 Route::get('/api/get-test-answer', [App\Http\Controllers\api\TestController::class, 'getAnswer'])->name('getAnswer');
 Route::get('/api/test-detail-history', [App\Http\Controllers\api\TestController::class, 'detailHistory'])->name('detailHistory');
+
+Route::get('/api/test-share-soal', [App\Http\Controllers\api\TestController::class, 'shareSoal'])->name('shareSoal');
+Route::get('/api/test-detail-by-token', [App\Http\Controllers\api\TestController::class, 'detailByToken'])->name('detailByToken');
+Route::get('/api/hasil-test-siswa', [App\Http\Controllers\api\TestController::class, 'hasiltestSiswa'])->name('hasiltestSiswa');
+Route::get('/api/hasil-test-siswa-package-list', [App\Http\Controllers\api\TestController::class, 'hasilTestSiswaPackageList'])->name('hasilTestSiswaPackageList');
+Route::get('/api/delete-soal', [App\Http\Controllers\api\TestController::class, 'deletePackageDetail'])->name('deletePackageDetail');
+Route::get('/api/delete-package', [App\Http\Controllers\api\TestController::class, 'deletePackage'])->name('deletePackage');
+
 Route::get('/api/my-test', [App\Http\Controllers\api\TestController::class, 'myTest'])->name('myTest');
+
+
+
 Route::post('/api/change-profile-images', [App\Http\Controllers\api\ApiAuth::class, 'changeProfileImage'])->name('changeProfileImage');
+
+
 Route::post('/api/create-news', [App\Http\Controllers\api\NewsController::class, 'createNews'])->name('createNews');
