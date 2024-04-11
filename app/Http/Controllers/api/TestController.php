@@ -61,13 +61,13 @@ class TestController extends Controller
         if ($user->role == null) {
             # code...
             $paket = $paket->where('user_id', 1);
-        } else {
-            # code...
-            $role = $user->role;
             $paket = $paket->where('jenjang', $jenjang);
             $paket = $paket->where('mapel', $mapel);
             $paket = $paket->where('tahun', $tahun);
             $paket = $paket->where('name', 'LIKE', '%' . $search . '%');
+        } else {
+            # code...
+            $role = $user->role;
             if ($role == 'ADMIN') {
                 # code...
 
