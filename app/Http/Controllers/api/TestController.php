@@ -566,7 +566,7 @@ class TestController extends Controller
                 'signature' => null
             ));
         }
-        $answer = AnswerPackages::where('answer_packages.user_id', $req->user_id);
+        $answer = AnswerPackages::where('answer_packages.user_id', $req->user_id)->where('tutor_id', $user->id);
         $take = 10;
         $skip = 0;
         if ($req->has('take')) {
