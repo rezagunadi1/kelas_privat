@@ -39,11 +39,24 @@ class TestController extends Controller
         $role = 'null';
         $take = 10;
         $skip = 0;
+        $jenjang = '';
+        $mapel = '';
+        $tahun = '';
+        $search = '';
         if ($req->has('take')) {
             $take = $req->take;
         }
         if ($req->has('skip')) {
             $skip = $req->skip;
+        }
+        if ($req->has('jenjang')) {
+            $jenjang = $req->jenjang;
+        }
+        if ($req->has('mapel')) {
+            $mapel = $req->mapel;
+        }
+        if ($req->has('search')) {
+            $search = $req->search;
         }
         if ($user->role == null) {
             # code...
@@ -51,6 +64,10 @@ class TestController extends Controller
         } else {
             # code...
             $role = $user->role;
+            $paket = $paket->where('jenjang', $jenjang);
+            $paket = $paket->where('mapel', $mapel);
+            $paket = $paket->where('tahun', $tahun);
+            $paket = $paket->where('name', 'LIKE', '%' . $search . '%');
             if ($role == 'ADMIN') {
                 # code...
 
