@@ -543,21 +543,35 @@ class TestController extends Controller
                 'signature' => null
             ));
         }
+        Log::info('detail by token');
+        Log::info($req);
         $targetPackage
             = ShareManagerDB::where('token', $req->token)->first();
-
-        $soal = PaketSoal::where('id', $targetPackage->package_id)->where('is_deleted', 0)->orderBy('id', 'asc')->first();
-        foreach ($soal as $value) {
-            $value->tutor_id = $targetPackage->user_id;
+        if (!$targetPackage) {
+            # code...
+            return response()->json(array(
+                'error' => true,
+                'message' => "Soal tidak di temukan",
+                'data' => null,
+                'status_code' => 200,
+                'signature' => null
+            ));
+        } else {
+            # code...
+            $soal = PaketSoal::where('id', $targetPackage->package_id)->where('is_deleted', 0)->orderBy('id', 'asc')->first();
+            foreach ($soal as $value) {
+                $value->tutor_id = $targetPackage->user_id;
+            }
+    
+            return response()->json(array(
+                'error' => false,
+                'message' => "Berhasil Mengambil Data",
+                'data' => $soal,
+                'status_code' => 200,
+                'signature' => null
+            ));
         }
-
-        return response()->json(array(
-            'error' => false,
-            'message' => "Berhasil Mengambil Data",
-            'data' => $soal,
-            'status_code' => 200,
-            'signature' => null
-        ));
+        
     }
     public function hasilTestSiswa(Request $req)
     {
