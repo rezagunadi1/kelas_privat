@@ -180,7 +180,9 @@ class TestController extends Controller
         }
 
 
-        $answer = AnswerPackages::where('user_id', $user->id)->where('id', $req->test_history_id)->first();
+        $answer = AnswerPackages::
+        // where('user_id', $user->id)->
+        where('id', $req->test_history_id)->first();
         $soal = soal::where('paket_id', $answer->package_id)->where('is_deleted', 0)->orderBy('id', 'asc')
             // ->orderBy('id','desc')
             ->get();
