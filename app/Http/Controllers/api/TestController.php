@@ -232,6 +232,7 @@ class TestController extends Controller
             # code...
             $answerEachQuestion = new jawaban();
             $answerEachQuestion->user_id = $user->id;
+            $answerEachQuestion->tutor_id = $req->tutor_id;
             $answerEachQuestion->id_soal = $value['id'];
             $answerEachQuestion->id_paket = $req->test_id;
             $answerEachQuestion->answer_id = $answer->id;
