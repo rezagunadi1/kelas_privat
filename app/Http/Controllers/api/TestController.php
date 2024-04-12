@@ -585,7 +585,7 @@ class TestController extends Controller
         }
         $packageList
             = AnswerPackages::where('tutor_id', $user->id)->join('users', 'users.id', '=', 'answer_packages.user_id')
-            ->select('answer_packages.user_id', DB::raw('COUNT(user_id) as total'), 'users.name', 'users.image', 'user.email', 'user.hp')
+            ->select('answer_packages.user_id', DB::raw('COUNT(user_id) as total'), 'users.name', 'users.image', 'users.email', 'users.hp')
             ->groupBy('user_id')->get();
 
 
