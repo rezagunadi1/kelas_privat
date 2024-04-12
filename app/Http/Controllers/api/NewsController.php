@@ -29,7 +29,7 @@ class NewsController extends Controller
         }
         $take = 10;
         $skip = 0;
-        $is_home = 0;
+        $isHome = 0;
         if ($req->has('take')) {
             $take = $req->take;
         }
@@ -37,9 +37,9 @@ class NewsController extends Controller
             $skip = $req->skip;
         }
         if ($req->has('is_home')) {
-            $is_home = $req->is_home;
+            $isHome = $req->is_home;
         }
-        $data = news::orderBy('id', 'desc')->take($take)->skip($skip)->where('is_home', $is_home)->get();
+        $data = news::orderBy('id', 'desc')->take($take)->skip($skip)->where('is_home', $isHome)->get();
         $newsId = $data->pluck('id')->toArray();
         $images = Image::whereIn('news_id', $newsId)->get();
         foreach ($data as $value) {
