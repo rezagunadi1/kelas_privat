@@ -545,7 +545,7 @@ class TestController extends Controller
         $targetPackage
             = ShareManagerDB::where('token', $req->token)->first();
 
-        $soal = soal::where('paket_id', $targetPackage->package_id)->where('is_deleted', 0)->orderBy('id', 'asc')->get();
+        $soal = PaketSoal::where('id', $targetPackage->package_id)->where('is_deleted', 0)->orderBy('id', 'asc')->first();
         foreach ($soal as $value) {
             $value->tutor_id = $targetPackage->user_id;
         }
