@@ -558,15 +558,13 @@ class TestController extends Controller
             ));
         } else {
             # code...
-            $soal = PaketSoal::where('id', $targetPackage->package_id)->where('is_deleted', 0)->orderBy('id', 'asc')->first();
-            foreach ($soal as $value) {
-                $value->tutor_id = $targetPackage->user_id;
-            }
+            $package = PaketSoal::where('id', $targetPackage->package_id)->where('is_deleted', 0)->orderBy('id', 'asc')->first();
+            $package->tutor_id = $targetPackage->user_id;
     
             return response()->json(array(
                 'error' => false,
                 'message' => "Berhasil Mengambil Data",
-                'data' => $soal,
+                'data' => $package,
                 'status_code' => 200,
                 'signature' => null
             ));
