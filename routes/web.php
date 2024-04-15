@@ -73,6 +73,11 @@ Route::get('/tnc-child-care', function () {
         'title' => 'T&C Child Care',
     ]);
 });
+Route::get('/tnc-kelas-privat', function () {
+    return view('tnc.kelas_privat', [
+        'title' => 'T&C Kelas Privat',
+    ]);
+});
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
