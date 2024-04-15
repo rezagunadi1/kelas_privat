@@ -78,6 +78,11 @@ Route::get('/tnc-kelas-privat', function () {
         'title' => 'T&C Kelas Privat',
     ]);
 });
+Route::get('/delete-account', function () {
+    return view('delete_account', [
+        'title' => 'Delete Account',
+    ]);
+});
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
