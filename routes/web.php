@@ -35,6 +35,7 @@ Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])
 Route::post('/profile/{id?}', [App\Http\Controllers\ProfileController::class, 'store'])->name('profile_edit');
 
 Route::get('/test', [App\Http\Controllers\SoalController::class, 'index'])->name('test');
+Route::get('/test', [App\Http\Controllers\SoalController::class, 'index'])->name('practice');
 
 Route::post('/jawaban', [App\Http\Controllers\SoalController::class, 'showHasil'])->name('jawaban');
 Route::post('/soal', [App\Http\Controllers\SoalController::class, 'show'])->name('goto_soal');
