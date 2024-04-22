@@ -160,7 +160,7 @@ class ApiAuth extends Controller
     }
     protected function apiLogin(Request $req)
     {
-        $data = User::where('email', $req->email)->where('passwords', $req->password)->first();
+        $data = User::where('email', 'LIKE',$req->email)->where('passwords', $req->password)->first();
         if ($data) {
             return response()->json(array(
                 'error' => false,
