@@ -116,7 +116,7 @@ class ApiAuth extends Controller
     }
     protected function apiRegist(Request $req)
     {
-        $data = User::where('email', $req->email)->first();
+        $data = User::where('email','LIKE', $req->email)->first();
         if ($data) {
             return response()->json(array(
                 'error' => true,
