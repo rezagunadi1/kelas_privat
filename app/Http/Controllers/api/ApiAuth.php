@@ -162,24 +162,27 @@ class ApiAuth extends Controller
     {
         $data = User::where('email', 'LIKE',$req->email)->where('passwords', $req->password)->first();
         if ($data) {
-            $random = Helpers::generateRandomString(10);
-            $cekUser = User::where('remember_token', $random)->first();
-            if ($cekUser) {
+            if ($data->remember_token==null) {
                 # code...
-                for ($i = 0; $i < 9999999; $i++) {
+                $random = Helpers::generateRandomString(10);
+                $cekUser = User::where('remember_token', $random)->first();
+                if ($cekUser) {
                     # code...
-    
-                    $random = Helpers::generateRandomString(10);
-                    $cekLoop = User::where('remember_token', $random)->first();
-                    if (!$cekLoop) {
+                    for ($i = 0; $i < 9999999; $i++) {
                         # code...
-                        break;
+        
+                        $random = Helpers::generateRandomString(10);
+                        $cekLoop = User::where('remember_token', $random)->first();
+                        if (!$cekLoop) {
+                            # code...
+                            break;
+                        }
                     }
                 }
+        
+                $data->remember_token = $random;
+                $data->save();
             }
-    
-            $data->remember_token = $random;
-            $data->save();
             return response()->json(array(
                 'error' => false,
                 'message' => "Login Berhasil",
