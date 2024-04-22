@@ -116,6 +116,16 @@ class ApiAuth extends Controller
     }
     protected function apiRegist(Request $req)
     {
+        $data = User::where('email', $req->email)->first();
+        if ($data) {
+            return response()->json(array(
+                'error' => true,
+                'message' => "Email sudah di gunakan",
+                'data' => $data,
+                'status_code' => 201,
+                'signature' => null
+            ));
+        }
         $random = Helpers::generateRandomString(10);
         $cekUser = User::where('remember_token', $random)->first();
         if ($cekUser) {
@@ -132,11 +142,11 @@ class ApiAuth extends Controller
             }
         }
         $data = new User;
-        $data->name = $req['name'];
-        $data->email = $req['email'];
-        $data->hp = $req['phone'];
-        $data->password = Hash::make($req['password']);
-        $data->passwords = $req['password'];
+        $data->name = $req->name;
+        $data->email = $req->email;
+        $data->hp = $req->phone;
+        $data->password = Hash::make($req->password);
+        $data->passwords = $req->password;
         $data->remember_token = $random;
         $data->save();
 
