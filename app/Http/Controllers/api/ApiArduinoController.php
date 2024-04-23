@@ -131,6 +131,7 @@ class ApiArduinoController extends Controller
         $data->phone = $req->phone;
         $data->email = $req->email;
         $data->message = $req->message;
+        $data->type = $req->type;
         $data->save();
 
         return response()->json(array(

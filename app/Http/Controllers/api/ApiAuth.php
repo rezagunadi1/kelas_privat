@@ -185,7 +185,7 @@ class ApiAuth extends Controller
             }
             return response()->json(array(
                 'error' => false,
-                'message' => "Login Berhasil",
+                'message' => "Login Berhasil! Selamat datang di KELAS PRIVAT",
                 'data' => $data,
                 'status_code' => 200,
                 'signature' => null

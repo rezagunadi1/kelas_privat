@@ -16,6 +16,7 @@ class HelpRequest extends Migration
         Schema::create('help_request', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->default(0);
+            $table->string('type');
             $table->string('name')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable();

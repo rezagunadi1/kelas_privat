@@ -87,6 +87,7 @@ Route::get('/delete-account', function () {
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::match(['get', 'post'], '/api/get-help', [App\Http\Controllers\api\NewsController::class, 'helpRequest'])->name('api_get_help');
 Route::match(['get', 'post'], '/api/help', [App\Http\Controllers\api\ApiArduinoController::class, 'helpRequest'])->name('api_help');
 Route::match(['get', 'post'], '/api/login', [App\Http\Controllers\api\ApiAuth::class, 'apiLogin'])->name('api_login');
 Route::match(['get', 'post'], '/api/regist', [App\Http\Controllers\api\ApiAuth::class, 'apiRegist'])->name('api_regist');
