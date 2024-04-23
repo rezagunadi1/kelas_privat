@@ -91,7 +91,7 @@ class ApiAuth extends Controller
     }
     protected function apiChangePassword(Request $req)
     {
-        $data = User::where('remember_token', $req->remember_token)->first();
+        $data = User::where('remember_token', $req->mobile_token)->first();
         if ($data->passwords == $req['password']) {
 
             $data->password = Hash::make($req['new_password']);
