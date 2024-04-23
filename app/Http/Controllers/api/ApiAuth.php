@@ -171,7 +171,7 @@ class ApiAuth extends Controller
                     for ($i = 0; $i < 9999999; $i++) {
                         # code...
         
-                        $random = Helpers::generateRandomString(10);
+                        $random = Helpers::generateRandomString(20);
                         $cekLoop = User::where('remember_token', $random)->first();
                         if (!$cekLoop) {
                             # code...
