@@ -91,8 +91,8 @@ Route::match(['get', 'post'], '/api/get-help', [App\Http\Controllers\api\NewsCon
 Route::match(['get', 'post'], '/api/help', [App\Http\Controllers\api\ApiArduinoController::class, 'helpRequest'])->name('api_help');
 Route::match(['get', 'post'], '/api/login', [App\Http\Controllers\api\ApiAuth::class, 'apiLogin'])->name('api_login');
 Route::match(['get', 'post'], '/api/regist', [App\Http\Controllers\api\ApiAuth::class, 'apiRegist'])->name('api_regist');
-Route::match(['get', 'post'], '/api/auth/update', [App\Http\Controllers\api\ApiAuth::class, 'apiChangePassword'])->name('api_auth_change_password');
-Route::match(['get', 'post'], '/api/auth/change-password', [App\Http\Controllers\api\ApiAuth::class, 'apiUpdate'])->name('api_auth_update');
+Route::match(['get', 'post'], '/api/auth/update', [App\Http\Controllers\api\ApiAuth::class, 'apiUpdate'])->name('api_auth_update');
+Route::match(['get', 'post'], '/api/auth/change-password', [App\Http\Controllers\api\ApiAuth::class, 'apiChangePassword'])->name('api_auth_change_password');
 Route::match(['get', 'post'], '/api/arduino/dht-pulse/{token}', [App\Http\Controllers\api\ApiArduinoController::class, 'dhtPulse'])->name('api_dht_pulse');
 Route::match(['get', 'post'], '/api/arduino/get-dht-pulse/detail/{token}', [App\Http\Controllers\api\ApiArduinoController::class, 'dhtPulseGetDetail'])->name('api_dht_pulse_detail');
 Route::match(['get', 'post'], '/api/arduino/get-dht-pulse/detail/and-remove/{token}', [App\Http\Controllers\api\ApiArduinoController::class, 'dhtPulseGetDetailAndRemove'])->name('api_dht_pulse_detail_and_remove');
