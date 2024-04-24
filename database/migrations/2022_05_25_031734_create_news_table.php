@@ -22,6 +22,7 @@ class CreateNewsTable extends Migration
             $table->string('created_by');  
             $table->integer('is_home')->default(0);  
             $table->bigInteger('is_deleted')->default(0);
+            $table->bigInteger('priority')->default(0);
             $table->timestamps();
         });
     }

@@ -40,7 +40,7 @@ class NewsController extends Controller
         if ($req->has('is_home')) {
             $isHome = $req->is_home;
         }
-        $data = news::orderBy('id', 'desc')->take($take)->skip($skip)->where('is_home', $isHome)->get();
+        $data = news::where('is_deleted')->orderBy('id', 'desc')->orderBy('priority', 'desc')->take($take)->skip($skip)->where('is_home', $isHome)->get();
         $newsId = $data->pluck('id')->toArray();
         $images = Image::whereIn('news_id', $newsId)->get();
         foreach ($data as $value) {
