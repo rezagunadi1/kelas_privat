@@ -95,7 +95,7 @@ class NewsController extends Controller
         $news->description = $req->content;
         $news->category = $req->tag;
         $news->created_by = $user->name;
-        $news->is_home = $user->is_home;
+        $news->is_home = $req->is_home;
         $news->save();
 
         $imageDB = new Image();
