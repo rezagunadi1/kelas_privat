@@ -118,8 +118,8 @@ Route::get('/api/test-share-soal', [App\Http\Controllers\api\TestController::cla
 Route::get('/api/test-detail-by-token', [App\Http\Controllers\api\TestController::class, 'detailByToken'])->name('detailByToken');
 Route::get('/api/hasil-test-siswa', [App\Http\Controllers\api\TestController::class, 'hasiltestSiswa'])->name('hasiltestSiswa');
 Route::get('/api/hasil-test-siswa-package-list', [App\Http\Controllers\api\TestController::class, 'hasilTestSiswaPackageList'])->name('hasilTestSiswaPackageList');
-Route::get('/api/delete-soal', [App\Http\Controllers\api\TestController::class, 'deletePackageDetail'])->name('deletePackageDetail');
-Route::get('/api/delete-package', [App\Http\Controllers\api\TestController::class, 'deletePackage'])->name('deletePackage');
+Route::post('/api/delete-soal', [App\Http\Controllers\api\TestController::class, 'deletePackageDetail'])->name('deletePackageDetail');
+Route::post('/api/delete-package', [App\Http\Controllers\api\TestController::class, 'deletePackage'])->name('deletePackage');
 
 Route::get('/api/my-test', [App\Http\Controllers\api\TestController::class, 'myTest'])->name('myTest');
 
