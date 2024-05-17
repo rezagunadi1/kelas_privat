@@ -19,37 +19,55 @@ class ApiArduinoController extends Controller
     public function dhtPulse($token_id, Request $req)
     {
         // $data = ApiArduino::where('token_id', $token_id)->skip($req->skip)->take($req->take)->get();
-        $data = new ApiArduino;
-        $data->token_id = $token_id;
-        $data->port0 = $req->port0;
-        $data->port1 = $req->port1;
-        $data->port2 = $req->port2;
-        $data->port3 = $req->port3;
-        $data->port4 = $req->port4;
-        $data->port5 = $req->port5;
-        $data->port6 = $req->port6;
-        $data->save();
+        $isActive = ToolsAddress::where('token', $token_id)->where('is_deleted',0)->first();
+        if($isActive){
+
+            $data = new ApiArduino;
+            $data->token_id = $token_id;
+            $data->port0 = $req->port0;
+            $data->port1 = $req->port1;
+            $data->port2 = $req->port2;
+            $data->port3 = $req->port3;
+            $data->port4 = $req->port4;
+            $data->port5 = $req->port5;
+            $data->port6 = $req->port6;
+            $data->save();
+        }
+        return $data;
     }
     public function dhtPulseGetDetail($token_id, Request $req)
     {
         $limit=$req->has('take')?$req->take:10;
         $skip=$req->has('skip')?$req->skip:0;
 
-        $data = ApiArduino::where('token_id', $token_id)->orderBy('id', 'desc')->skip($skip)->take($limit)->get();
-        // $data = new ApiArduino;
-        // $data->token_id = $token_id;
-        // $data->humidity = $req->humidity;
-        // $data->temperature = $req->temperature;
-        // $data->pulse = $req->pulse;
-        // $data->save();
+        $isActive = ToolsAddress::where('token', $token_id)->where('is_deleted', 0)->first();
+        if ($isActive) {
+            # code...
+            $data = ApiArduino::where('token_id', $token_id)->orderBy('id', 'desc')->skip($skip)->take($limit)->get();
+            // $data = new ApiArduino;
+            // $data->token_id = $token_id;
+            // $data->humidity = $req->humidity;
+            // $data->temperature = $req->temperature;
+            // $data->pulse = $req->pulse;
+            // $data->save();
+    
+            return response()->json(array(
+                'error' => false,
+                'message' => "Berhasil Mengambil Data",
+                'data' => $data,
+                'status_code' => 200,
+                'signature' => null
+            ));
+        } else {
+            return response()->json(array(
+                'error' => true,
+                'message' => "Masa Aktif Habis, Download kelas privat app untuk memperpanjang",
+                'data' => null,
+                'status_code' => 201,
+                'signature' => null
+            ));
 
-        return response()->json(array(
-            'error' => false,
-            'message' => "Berhasil Mengambil Data",
-            'data' => $data,
-            'status_code' => 200,
-            'signature' => null
-        ));
+        }
     }
     public function dhtPulseGetDetailAndRemove($token_id, Request $req)
     {
