@@ -39,14 +39,23 @@ class LeaderBoardController extends Controller
 
             $data = jawaban::join('users', 'users.id', '=', 'jawabans.user_id')
                 ->groupBy('jawabans.user_id')
-                ->select('users.name', 'users.id', 'users.image', 'jawabans.user_id', DB::raw('COUNT(jawabans.user_id) as sub_total'), DB::raw('COUNT(id_paket) as total'))
-                ->where('is_true', 1)->get();
+                ->select('users.name', 'users.id', 'users.image', 'jawabans.user_id', DB::raw('COUNT(jawabans.user_id) as sub_total'))
+                ->where('is_true', 1)->orderBy('sub_total','desc')->skip($req->skip)->take($req->take)->get();
+                foreach ($data as  $value) {
+                    # code...
+                    $value->total = jawaban::where("user_id", $value->user_id)->groupBy('id_soal')->count();
+                }
         } else {
             $data = PaketSoal::join('jawabans', 'paket_soals.id', '=', 'jawabans.id_soal')
                 ->join('users', 'users.id', '=', 'paket_soals.user_id')
                 ->groupBy('paket_soals.user_id')
-                ->select('users.name', 'users.id', 'users.image', 'paket_soals.user_id', DB::raw('COUNT(paket_soals.user_id) as sub_total'), DB::raw('COUNT(paket_soals.id) as total'))
-                ->where('is_true', 1)->get();
+                // DB::raw('COUNT(paket_soals.user_id) as sub_total'),
+                ->select('users.name', 'users.id', 'users.image', 'paket_soals.user_id',  DB::raw('COUNT(paket_soals.id) as total'))
+                ->where('is_true', 1)->orderBy('total','desc')->skip($req->skip)->take($req->take)->get();
+            foreach ($data as  $value) {
+                # code...
+                $value->sub_total = PaketSoal::where("user_id", $value->user_id)-> join('jawabans', 'paket_soals.id', '=', 'jawabans.id_soal')->where('is_true', 1)->count();
+            }
         }
        
         return response()->json(array(
