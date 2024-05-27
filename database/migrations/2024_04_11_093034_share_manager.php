@@ -18,6 +18,7 @@ class ShareManager extends Migration
             $table->integer('user_id');
             $table->integer('package_id');
             $table->text('token');
+            $table->dateTime('end_date');
             $table->timestamps();
         });
     }

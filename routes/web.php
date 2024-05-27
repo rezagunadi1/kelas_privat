@@ -114,6 +114,7 @@ Route::post('/api/create-test-package-detail', [App\Http\Controllers\api\TestCon
 Route::get('/api/get-test-answer', [App\Http\Controllers\api\TestController::class, 'getAnswer'])->name('getAnswer');
 Route::get('/api/test-detail-history', [App\Http\Controllers\api\TestController::class, 'detailHistory'])->name('detailHistory');
 
+Route::get('/api/get-leader-board', [App\Http\Controllers\api\LeaderBoardController::class, 'leaderBoard'])->name('leaderBoard');
 Route::get('/api/test-share-soal', [App\Http\Controllers\api\TestController::class, 'shareSoal'])->name('shareSoal');
 Route::get('/api/test-detail-by-token', [App\Http\Controllers\api\TestController::class, 'detailByToken'])->name('detailByToken');
 Route::get('/api/hasil-test-siswa', [App\Http\Controllers\api\TestController::class, 'hasiltestSiswa'])->name('hasiltestSiswa');

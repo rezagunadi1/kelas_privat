@@ -1,0 +1,60 @@
+<?php
+
+namespace App\Http\Controllers\api;
+
+use App\Models\User;
+use App\Models\ToolsAddress;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Helpers;
+use App\Http\Controllers\Controller;
+use App\Models\AnswerPackages;
+use App\Models\Image;
+use App\Models\jawaban;
+use App\Models\news;
+use App\Models\PaketSoal;
+use App\Models\ShareManagerDB;
+use App\Models\soal;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
+use ShareManager;
+
+class LeaderBoardController extends Controller
+{
+    //
+    public function leaderBoard(Request $req)
+    {
+
+        $user = User::where('remember_token', $req->mobile_token)->first();
+        if (!$user) {
+            return response()->json(array(
+                'error' => true,
+                'message' => "Invalid Credential",
+                'data' => null,
+                'status_code' => 201,
+                'signature' => null
+            ));
+        }
+        if ($req->type == 'user') {
+
+            $data = jawaban::join('users', 'users.id', '=', 'jawabans.user_id')
+                ->groupBy('jawabans.user_id')
+                ->select('users.name', 'users.id', 'users.image', 'jawabans.user_id', DB::raw('COUNT(jawabans.user_id) as sub_total'), DB::raw('COUNT(id_paket) as total'))
+                ->where('is_true', 1)->get();
+        } else {
+            $data = PaketSoal::join('jawabans', 'paket_soals.id', '=', 'jawabans.id_soal')
+                ->join('users', 'users.id', '=', 'paket_soals.user_id')
+                ->groupBy('paket_soals.user_id')
+                ->select('users.name', 'users.id', 'users.image', 'paket_soals.user_id', DB::raw('COUNT(paket_soals.user_id) as sub_total'), DB::raw('COUNT(paket_soals.id) as total'))
+                ->where('is_true', 1)->get();
+        }
+       
+        return response()->json(array(
+            'error' => false,
+            'message' => "Berhasil Mengambil Data",
+            'data' => $data,
+            'status_code' => 200,
+            'signature' => null
+        ));
+    }
+}

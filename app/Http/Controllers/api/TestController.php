@@ -520,6 +520,7 @@ class TestController extends Controller
             $package->package_id = $req->id;
             $token = randomString(48);
             $package->token = $user->id . $req->id . $token;
+            $package->end_date =  $req->end_date;
             $package->save();
         }
 
