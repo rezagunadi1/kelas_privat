@@ -73,6 +73,11 @@ class TestController extends Controller
 
             $paket = $paket->where('tahun', $tahun);
         }
+        if ($user->email != 'uji-coba@kelas-privat.com') {
+            # code...
+
+            $paket = $paket->where('user_id', '!=', $user->id);
+        }
         if($search!=''){
 
             $paket = $paket->where('name', 'LIKE', '%' . $search . '%');
