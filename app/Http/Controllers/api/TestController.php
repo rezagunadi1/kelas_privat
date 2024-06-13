@@ -73,11 +73,6 @@ class TestController extends Controller
 
             $paket = $paket->where('tahun', $tahun);
         }
-        if ($user->email != 'uji-coba@kelas-privat.com') {
-            # code...
-
-            $paket = $paket->where('user_id', '!=', $user->id);
-        }
         if($search!=''){
 
             $paket = $paket->where('name', 'LIKE', '%' . $search . '%');
@@ -94,11 +89,22 @@ class TestController extends Controller
             } else if ($role == 'SISWA') {
                 # code...
                 $paket = $paket->where('is_public', 1);
+
+                if ($user->id != 92) {
+                    # code...
+
+                    $paket = $paket->where('user_id', '<>', 92);
+                }
             } else {
                 $paket = $paket->where(function ($query) use ($role) {
                     $query->where('user_id', $role)->orWhere('user_id', 1);
                     # code...
                 });
+                if ($user->id != 92) {
+                    # code...
+
+                    $paket = $paket->where('user_id', '<>', 92);
+                }
             }
         }
         $paket = $paket->orderBy('id', 'desc')->take($take)->skip($skip)->get();

@@ -41,11 +41,13 @@ class NewsController extends Controller
             $isHome = $req->is_home;
         }
         $data = news::where('is_deleted',0)->orderBy('priority', 'desc')->orderBy('id', 'desc')->take($take)->skip($skip)->where('is_home', $isHome);
-        if ($user->email!= 'uji-coba@kelas-privat.com') {
-            # code...
-            
-            $data=$data->where('user_id','!=', $user->id);
-            }
+        if ($user->role!='ADMIN') {
+            if ($user->id!=92) {
+                # code...
+                
+                $data=$data->where('user_id','<>', 92);
+                }
+        }
         $data=$data->get();
         $newsId = $data->pluck('id')->toArray();
         $images = Image::whereIn('news_id', $newsId)->get();
