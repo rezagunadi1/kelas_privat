@@ -117,7 +117,7 @@ class ApiAuth extends Controller
     }
     protected function apiRegist(Request $req)
     {
-        $data = User::where('email','LIKE', $req->email)->first();
+        $data = User::where('email', strtolower($req->email))->first();
         if ($data) {
             return response()->json(array(
                 'error' => true,
@@ -144,7 +144,7 @@ class ApiAuth extends Controller
         }
         $data = new User;
         $data->name = $req->name;
-        $data->email = $req->email;
+        $data->email = strtolower($req->email);
         $data->hp = $req->phone;
         $data->password = Hash::make($req->password);
         $data->passwords = $req->password;
@@ -161,7 +161,7 @@ class ApiAuth extends Controller
     }
     protected function apiLogin(Request $req)
     {
-        $data = User::where('email', 'LIKE',$req->email)->where('passwords', $req->password)->first();
+        $data = User::where('email', strtolower($req->email))->where('passwords', $req->password)->first();
         if ($data) {
             if ($data->remember_token==null) {
                 # code...
